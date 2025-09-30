@@ -1,0 +1,338 @@
+body,
+html {
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin: -0.75rem -1rem 0 -1rem;
+}
+
+.sidebar-header h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.toolbar {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Prompt Cards with Color Stripes */
+.prompt-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.prompt-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Color Stripe - Vertical Left Border */
+.prompt-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+}
+
+.prompt-card.color-none::before {
+  background-color: transparent;
+}
+.prompt-card.color-red::before {
+  background-color: #dc3545;
+}
+.prompt-card.color-orange::before {
+  background-color: #fd7e14;
+}
+.prompt-card.color-yellow::before {
+  background-color: #ffc107;
+}
+.prompt-card.color-green::before {
+  background-color: #198754;
+}
+.prompt-card.color-teal::before {
+  background-color: #20c997;
+}
+.prompt-card.color-blue::before {
+  background-color: #0d6efd;
+}
+.prompt-card.color-indigo::before {
+  background-color: #6610f2;
+}
+.prompt-card.color-purple::before {
+  background-color: #6f42c1;
+}
+.prompt-card.color-pink::before {
+  background-color: #d63384;
+}
+.prompt-card.color-brown::before {
+  background-color: #795548;
+}
+.prompt-card.color-gray::before {
+  background-color: #6c757d;
+}
+.prompt-card.color-black::before {
+  background-color: #212529;
+}
+
+.prompt-card .card-body {
+  padding-left: 1.25rem; /* Platz für den Farbstreifen */
+}
+
+.prompt-meta {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.prompt-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.tag-badge {
+  font-size: 0.75rem;
+  background-color: #e9ecef;
+  color: #495057;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-badge:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+.tag-badge.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.tag-badge.selected {
+  background-color: #198754;
+  color: white;
+}
+
+/* Color Palette Selector */
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+  border-color: #212529;
+}
+
+.color-option.selected {
+  border-color: #212529;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.color-option.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Color Filter Buttons */
+.color-filter-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.color-filter-btn:hover {
+  transform: scale(1.15);
+  border-color: #212529;
+}
+
+.color-filter-btn.active {
+  border-color: #212529;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Tag Management */
+.managed-tag-item {
+  position: relative;
+}
+
+.managed-tag-item .delete-tag-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.managed-tag-item:hover .delete-tag-btn {
+  opacity: 1;
+}
+
+/* Tag Selector in Editor */
+#tagSelector {
+  background-color: #f8f9fa;
+  min-height: 60px;
+}
+
+#selectedTags .tag-badge {
+  background-color: #198754;
+  color: white;
+  padding-right: 0.75rem;
+}
+
+#availableTags .tag-badge {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+#availableTags .tag-badge:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Form Styling */
+#promptContent {
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.9rem;
+}
+
+/* Filter Buttons */
+.btn-group-vertical .btn {
+  text-align: left;
+  border-radius: 0.375rem !important;
+  margin-bottom: 0.25rem;
+}
+
+/* Search Input */
+#searchInput:focus {
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+  border-color: #667eea;
+}
+
+/* Status Badges */
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.status-active {
+  background-color: #d1edff;
+  color: #0c63e4;
+}
+
+.status-draft {
+  background-color: #fff3cd;
+  color: #b76e00;
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .main-content {
+    height: auto;
+  }
+}
+
+/* Animation for card transitions */
+.prompt-card {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll styling */
+.sidebar::-webkit-scrollbar,
+.main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.main-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.main-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
