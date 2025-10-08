@@ -1,0 +1,283 @@
+{
+  // ═══════════════════════════════════════════════════════════════════
+  // ZED EDITOR KONFIGURATION - SQL/JavaScript/Bash Development
+  // ═══════════════════════════════════════════════════════════════════
+
+  // GENERAL APPEARANCE & BEHAVIOR
+  "theme": "Andromeda",
+  "ui_font_family": "Segoe UI",
+  "ui_font_size": 16,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 14,
+  "buffer_font_weight": 400,
+  "cursor_blink": false,
+  "show_whitespaces": "selection",
+  "show_wrap_guides": true,
+  "wrap_guides": [80, 120],
+  "preferred_line_length": 100,
+  "soft_wrap": "prefer_line",
+  "tab_size": 2,
+  "hard_tabs": false,
+  "show_indent_guides": true,
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "active_line_width": 2
+  },
+
+  // EDITOR BEHAVIOR
+  "auto_save": "on_focus_change",
+  "format_on_save": "on",
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+  "show_completion_documentation": true,
+  "completion_documentation_secondary_query_debounce": 300,
+  "use_autoclose": true,
+  "always_treat_brackets_as_autoclosed": false,
+  "auto_update": true,
+  "confirm_quit": true,
+
+  // FILE TREE & NAVIGATION
+  "project_panel": {
+    "dock": "left",
+    "default_width": 300
+  },
+  "outline_panel": {
+    "dock": "right",
+    "default_width": 300
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "notification_panel": {
+    "dock": "right"
+  },
+
+  // AI ASSISTANT CONFIGURATION - MULTI-PROVIDER SETUP
+  "assistant": {
+    "enabled": true,
+    "version": "2",
+    "dock": "right",
+    "default_width": 400,
+    "provider": {
+      "name": "anthropic",
+      "api_key": "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"
+    },
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-20241022"
+    },
+    "providers": [
+      {
+        "name": "anthropic",
+        "api_key": "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",
+        "models": [
+          {
+            "name": "claude-3-5-sonnet-20241022",
+            "display_name": "Claude 3.5 Sonnet (Latest)",
+            "max_tokens": 200000
+          },
+          {
+            "name": "claude-3-opus-20240229",
+            "display_name": "Claude 3 Opus",
+            "max_tokens": 200000
+          },
+          {
+            "name": "claude-3-haiku-20240307",
+            "display_name": "Claude 3 Haiku (Fast)",
+            "max_tokens": 200000
+          }
+        ]
+      },
+      {
+        "name": "openai",
+        "api_key": "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",
+        "models": [
+          {
+            "name": "gpt-4-turbo-preview",
+            "display_name": "GPT-4 Turbo",
+            "max_tokens": 128000
+          },
+          {
+            "name": "gpt-4o",
+            "display_name": "GPT-4o (Latest)",
+            "max_tokens": 128000
+          },
+          {
+            "name": "gpt-3.5-turbo",
+            "display_name": "GPT-3.5 Turbo (Fast)",
+            "max_tokens": 16000
+          }
+        ]
+      },
+      {
+        "name": "google",
+        "api_key": "AIzaSyDNx6-_JrTqrxrTeEF4Xyai88uXPPPMhfc",
+        "api_url": "https://generativelanguage.googleapis.com/v1beta",
+        "models": [
+          {
+            "name": "gemini-1.5-pro",
+            "display_name": "Gemini 1.5 Pro",
+            "max_tokens": 2000000
+          },
+          {
+            "name": "gemini-pro",
+            "display_name": "Gemini Pro",
+            "max_tokens": 32000
+          },
+          {
+            "name": "gemini-pro-vision",
+            "display_name": "Gemini Pro Vision",
+            "max_tokens": 32000
+          }
+        ]
+      }
+    ]
+  },
+
+  // MANUS.IM CUSTOM INTEGRATION (Falls unterstützt)
+  "custom_ai_providers": {
+    "manus": {
+      "name": "Manus.im",
+      "api_key": "sk-AuRXezyZYh1a8NQDzQhOV5Aop7kNt4UM11Pmo846OMkLt2PRtuOpghDr4ErrJylVdhVe_YyXtvB8vscc",
+      "api_url": "https://api.manus.im/v1/chat/completions",
+      "enabled": true
+    }
+  },
+
+  // LANGUAGE SERVERS & FORMATTING
+  "language_servers": ["typescript-language-server", "sql-language-server", "bash-language-server"],
+  "lsp": {
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "includeInlayParameterNameHints": "all",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayVariableTypeHints": true,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeInlayEnumMemberValueHints": true
+        }
+      }
+    }
+  },
+
+  // LANGUAGES SPECIFIC SETTINGS
+  "languages": {
+    "SQL": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "formatter": "language_server",
+      "show_inline_completions": true,
+      "inlay_hints": {
+        "enabled": true
+      }
+    },
+    "JavaScript": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "formatter": "prettier",
+      "show_inline_completions": true,
+      "inlay_hints": {
+        "enabled": true
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      }
+    },
+    "TypeScript": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "formatter": "prettier",
+      "show_inline_completions": true,
+      "inlay_hints": {
+        "enabled": true
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      }
+    },
+    "Shell Script": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "formatter": "language_server",
+      "show_inline_completions": true
+    },
+    "JSON": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "formatter": "prettier"
+    },
+    "Markdown": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+      "formatter": "prettier",
+      "soft_wrap": "preferred_line_length",
+      "preferred_line_length": 80
+    }
+  },
+
+  // TERMINAL CONFIGURATION
+  "terminal": {
+    "dock": "bottom",
+    "default_height": 300,
+    "shell": {
+      "program": "cmd.exe"
+    },
+    "font_family": "JetBrains Mono",
+    "font_size": 14,
+    "line_height": "comfortable"
+  },
+
+  // SEARCH & REPLACE
+  "search": {
+    "whole_word": false,
+    "case_sensitive": false,
+    "include_ignored": false,
+    "regex": false
+  },
+
+  // VERSION CONTROL
+  "git": {
+    "enabled": true,
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+
+  // TELEMETRY & PRIVACY
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+
+  // FILE ASSOCIATIONS
+  "file_types": {
+    "Dockerfile": ["Dockerfile*"],
+    "SQL": ["*.sql", "*.ddl", "*.dml"],
+    "Shell Script": ["*.sh", "*.bash", "*.zsh", "*.fish"],
+    "JavaScript": ["*.js", "*.jsx", "*.mjs"],
+    "TypeScript": ["*.ts", "*.tsx"]
+  },
+
+  // FEATURES
+  "features": {
+    "inline_completion_provider": "supermaven"
+  },
+
+  // EXPERIMENTAL FEATURES
+  "experimental.theme_overrides": {
+    "editor.background": "#1a1a1a",
+    "terminal.background": "#1a1a1a"
+  }
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Taktiken</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary-color: #3B82F6; /* Blau */
+            --secondary-color: #10B981; /* Grün */
+            --text-color: #1F2937; /* Dunkelgrau */
+            --background-light: #F9FAFB; /* Hellgrau */
+            --background-card: #FFFFFF; /* Weiß */
+            --border-color: #E5E7EB; /* Hellgrau für Linien */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--background-card);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .intro {
+            text-align: center;
+            font-style: italic;
+            color: #6B7280;
+            margin-bottom: 40px;
+        }
+
+        .strategy {
+            margin-bottom: 50px;
+            padding: 30px;
+            background-color: var(--background-light);
+            border-left: 5px solid var(--primary-color);
+            border-radius: 8px;
+        }
+
+        .strategy h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px dotted var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .tactic {
+            background-color: var(--background-card);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .tactic h3 {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tactic h3::before {
+            content: "💡";
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .code-block {
+            background-color: #F3F4F6;
+            border-left: 4px solid #D1D5DB;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.9em;
+            color: #4B5563;
+        }
+
+        .example-block {
+            background-color: #ECFDF5;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .example-block p {
+            margin: 5px 0;
+        }
+
+        .example-block strong {
+            color: #065F46;
+        }
+
+        .list-unstyled {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .list-unstyled li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .prompt-to-improve {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Prompt Engineering: Taktiken & Strategien</h1>
+        </header>
+        
+        <p class="intro">
+            Dieser Leitfaden fasst bewährte Methoden und Taktiken des Prompt Engineering zusammen, um Modelle der Künstlichen Intelligenz effektiver zu nutzen. Die folgenden Strategien und Taktiken bieten Ideen, wie Sie präzisere und relevantere Antworten erhalten können.
+        </p>
+
+        <section class="strategy">
+            <h2>Strategie 1: Gib klare Anweisungen</h2>
+            <div class="tactic">
+                <h3>Taktik A: Details hinzufügen, um relevantere Antworten zu erhalten</h3>
+                <p>
+                    Um eine hochrelevante Antwort zu erhalten, stellen Sie sicher, dass Ihre Anfragen alle wichtigen Details oder Kontextinformationen enthalten. Andernfalls überlassen Sie es dem Modell, zu erraten, was Sie meinen.
+                </p>
+                <div class="example-block">
+                    <p><strong>Schlechter:</strong> Wie addiere ich Zahlen in Excel?</p>
+                    <p><strong>Besser:</strong> Wie addiere ich eine Zeile von Dollarbeträgen in Excel? Ich möchte dies automatisch für ein ganzes Blatt mit Zeilen tun, wobei alle Summen in einer Spalte namens „Total“ auf der rechten Seite erscheinen sollen.</p>
+                </div>
+            </div>
+
+            <div class="tactic">
+                <h3>Taktik B: Bitte das Modell, eine Persona anzunehmen</h3>
+                <p>
+                    Die Systemnachricht kann verwendet werden, um die Persona festzulegen, die das Modell in seinen Antworten verwenden soll.
+                </p>
+                <div class="code-block">
+                    <strong>SYSTEM:</strong> Wenn ich um Hilfe beim Schreiben von etwas bitte, antwortest du mit einem Dokument, das in jedem Absatz mindestens einen Witz oder einen spielerischen Kommentar enthält.<br>
+                    <strong>USER:</strong> Schreibe eine Danksagung an meinen Stahlbolzenlieferanten dafür, dass er die Lieferung pünktlich und kurzfristig erledigt hat. Dies hat es uns ermöglicht, einen wichtigen Auftrag auszuliefern.
+                </div>
+            </div>
+
+            <div class="tactic">
+                <h3>Taktik C: Verwende Trennzeichen (Delimiters)</h3>
+                <p>
+                    Trennzeichen wie dreifache Anführungszeichen (```), XML-Tags oder Abschnittsüberschriften können helfen, Textabschnitte abzugrenzen, die unterschiedlich behandelt werden sollen.
+                </p>
+                <div class="code-block">
+                    <strong>USER:</strong> Fasse den Text, der durch dreifache Anführungszeichen begrenzt ist, in einem Haiku zusammen.<br>
+                    """Text hier einfügen"""
+                </div>
+            </div>
+
+            <div class="tactic">
+                <h3>Taktik D: Gib die Schritte an, die zur Erfüllung einer Aufgabe erforderlich sind</h3>
+                <p>
+                    Manche Aufgaben lassen sich am besten als Abfolge von Schritten definieren. Das explizite Aufschreiben der Schritte kann es dem Modell erleichtern, ihnen zu folgen.
+                </p>
+                <div class="code-block">
+                    <strong>SYSTEM:</strong> Verwende die folgenden schrittweisen Anweisungen, um auf Benutzereingaben zu antworten.<br>
+                    Schritt 1 - Der Benutzer stellt dir Text in dreifachen Anführungszeichen zur Verfügung. Fasse diesen Text in einem Satz zusammen, der das Präfix "Summary:" trägt.<br>
+                    Schritt 2 - Übersetze die Zusammenfassung aus Schritt 1 ins Spanische, mit dem Präfix "Translation:".<br>
+                    <strong>USER:</strong> """Text hier einfügen"""
+                </div>
+            </div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="tactic">
+                <h3>Taktik E: Gib Beispiele (Few-Shot Prompting)</h3>
+                <p>
+                    Das Bereitstellen von Beispielen kann einfacher sein, als eine Aufgabe explizit zu beschreiben. Dies ist besonders nützlich, wenn das Modell einen bestimmten Antwortstil nachahmen soll.
+                </p>
+                <div class="code-block">
+                    <strong>SYSTEM:</strong> Antworte in einem konsistenten Stil.<br>
+                    <strong>USER:</strong> Erkläre mir Geduld.<br>
+                    <strong>ASSISTANT:</strong> Der Fluss, der das tiefste Tal formt, entspringt einer bescheidenen Quelle; die größte Symphonie beginnt mit einer einzigen Note; der komplizierteste Wandteppich beginnt mit einem einzigen Faden.<br>
+                    <strong>USER:</strong> Erkläre mir den Ozean.
+                </div>
+            </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>            
+            <div class="tactic">
+                <h3>Taktik F: Gib die gewünschte Länge der Ausgabe an</h3>
+                <p>
+                    Sie können das Modell bitten, Ausgaben einer bestimmten Länge zu produzieren, z. B. in Bezug auf die Anzahl der Wörter, Sätze, Absätze oder Aufzählungspunkte.
+                </p>
+                <div class="code-block">
+                    <strong>USER:</strong> Fasse den Text, der durch dreifache Anführungszeichen begrenzt ist, in 2 Absätzen zusammen.<br>
+                    """Text hier einfügen"""<br>
+                    <br>
+                    <strong>USER:</strong> Fasse den Text, der durch dreifache Anführungszeichen begrenzt ist, in 3 Aufzählungspunkten zusammen.<br>
+                    """Text hier einfügen"""
+                </div>
+            </div>
+        </section>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+        <section class="strategy">
+            <h2>Strategie 2: Zerlege komplexe Aufgaben in einfachere Unteraufgaben</h2>
+            <div class="tactic">
+                <h3>Taktik G: Nutze Intent Classification, um relevante Anweisungen zu identifizieren</h3>
+                <p>
+                    Bei Aufgaben, die viele unabhängige Anweisungssätze erfordern, um verschiedene Fälle zu behandeln, kann es von Vorteil sein, zuerst die Art der Anfrage zu klassifizieren.
+                </p>
+                <div class="code-block">
+                    <strong>UNTERAUFGABE 1</strong><br>
+                    <strong>SYSTEM:</strong> Du erhältst Kundenanfragen. Klassifiziere jede Anfrage in eine primäre und eine sekundäre Kategorie. Stelle deine Ausgabe im JSON-Format mit den Schlüsseln "primary" und "secondary" bereit.<br>
+                    <strong>USER:</strong> Ich muss mein Internet wieder zum Laufen bringen.
+                </div>
+                <p>
+                    Basierend auf der Klassifizierung kann eine Reihe spezifischerer Anweisungen für die nächsten Schritte bereitgestellt werden.
+                </p>
+            </div>
+<br><br><br><br>            
+            <div class="tactic">
+                <h3>Taktik H: Fasse bei langen Konversationen den Dialog zusammen oder filtere ihn</h3>
+                <p>
+                    Da Modelle eine feste Kontextlänge haben, kann ein Dialog nicht unbegrenzt fortgesetzt werden. Eine Lösung besteht darin, frühere Gesprächsrunden zusammenzufassen.
+                </p>
+            </div>
+        </section>
+
+        <section class="strategy">
+            <h2>Strategie 3: Fasse lange Dokumente stückweise zusammen</h2>
+            <p>
+                Da Modelle eine feste Kontextlänge haben, können sie einen Text, der länger ist als der Kontext, nicht in einer einzigen Anfrage zusammenfassen. Sie können den Text in Abschnitte unterteilen, diese einzeln zusammenfassen und die Zusammenfassungen rekursiv zusammenfassen.
+            </p>
+        </section>
+<br><br><br><br><br><br><br><br>
+        <section class="strategy">
+            <h2>Strategie 4: Gib dem Modell Zeit zum "Nachdenken"</h2>
+            <div class="tactic">
+                <h3>Taktik I: Weise das Modell an, eine eigene Lösung zu erarbeiten</h3>
+                <p>
+                    Manchmal erzielen wir bessere Ergebnisse, wenn wir das Modell explizit anweisen, von den ersten Prinzipien aus zu argumentieren, bevor es zu einer Schlussfolgerung kommt.
+                </p>
+                <div class="code-block">
+                    <strong>SYSTEM:</strong> Erarbeite zuerst deine eigene Lösung für das Problem. Vergleiche dann deine Lösung mit der Lösung des Schülers und bewerte, ob die Lösung des Schülers korrekt ist oder nicht. Triff keine Entscheidung, ob die Lösung des Schülers korrekt ist, bevor du das Problem nicht selbst gelöst hast.
+                </div>
+            </div>
+
+            <div class="tactic">
+                <h3>Taktik J: Frage das Modell, ob es in vorherigen Durchgängen etwas übersehen hat</h3>
+                <p>
+                    Wenn das Modell Exzerpte aus einer großen Quelle auflistet, neigt es manchmal dazu, zu früh aufzuhören. Bessere Leistung kann erzielt werden, indem man das Modell mit Folgeanfragen auffordert, weitere übersehene Exzerpte zu finden.
+                </p>
+            </div>
+        </section>
+
+        <section class="strategy">
+            <h2>Strategie 5: Nutze externe Tools</h2>
+            <div class="tactic">
+                <h3>Taktik K: Nutze Code-Ausführung für genauere Berechnungen oder API-Aufrufe</h3>
+                <p>
+                    Modelle können nicht darauf vertrauen, dass sie selbständig genaue Rechenaufgaben ausführen. In solchen Fällen kann ein Modell angewiesen werden, stattdessen Code zu schreiben und auszuführen.
+                </p>
+                <div class="code-block">
+                    <strong>SYSTEM:</strong> Du kannst Python-Code schreiben und ausführen, indem du ihn in dreifache Backticks einschließt, z. B. ```code here```. Verwende dies, um Berechnungen durchzuführen.
+                </div>
+            </div>
+
+            <div class="tactic">
+                <h3>Taktik L: Gib dem Modell Zugang zu spezifischen Funktionen</h3>
+                <p>
+                    Die Chat Completions API ermöglicht die Übergabe einer Liste von Funktionsbeschreibungen, wodurch Modelle Funktionsargumente generieren können, die dann für Funktionsaufrufe verwendet werden können.
+                </p>
+            </div>
+        </section>
+<br><br><br><br><br><br><br><br>        
+        <footer class="prompt-to-improve">
+            <h3>Bereitzustellender Prompt zur Verbesserung:</h3>
+            <div class="code-block">
+                """<br>
+                [HIER DER ZU VERBESSERNDE PROMPT]<br>
+                """<br>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,338 @@
+ich habe mir eine private Bibliotheksapp erstellt, in der ich Prompts, die ich für meine Arbeit mit unterschidlichen LLMs brauche. Dort habe ich sie orderntlich struckturiert und schnell aufbaubar. Im anhang findest du die Readme des projektes, darin erschliesst sich, um was es geht. Ich will dieses Projekt nun erweitern. Meine Idee lautet: "Promptqueen---you-gonna-get-laid-by-AI-tonight - Promptsammlung und Zusammenstellung für ein oversofisticated primen the AI." Ich will, dass die App beim User anhand diverser Fragen alle nötigen oder auch optionalen Informationen zusammenstellt und mit diesen ein vorgefertigtes Templatefile befüllt. Ich habe bereits an einem Entwurf für eine Templatedatei gearbeitet, allerdings beschränken sich die Inhalte im Augenblick vor allem auf Programmieraufgaben und ist dem entsprechend einseitig aufgebaut. Die Datei soll allerdings in möglichst vielen Situationen als Template dienen, daher fehlen in Ihr entsprechende Bereiche für "Nicht programmier Aufgaben". (PRIMER Template codezentric.md) Als ein Beispiel wie man die Datei ausfüllen könnte, wenn man die AI primen will, sodass sie sich in die Rolle eines AI- und LLM-Developers versetzt, habe ich in der Datei "PRIMER AI and LLM Developer.md" angefügt. Wie du siehst ist die Idee zwar in ihren Grundzügen vorhanden, es fehlt aber noch vieles. Hilf mir bitte, daraus ein tolles, vollständiges Projekt zu machen. NAchdem du dich mit diesem Thema tiefer vertraut gemacht hast, wie würdest du weiter vorgehen? würdest du etwas an meienr bisherigen Idee ändern? Lass deiner Fantasy freien lauf hier. 
+
+================================================================================================================================
+================================================================================================================================
+================================================================================================================================
+
+
+Dokumente lesen
+
+    Antwort fertiggestellt
+
+Hallo! Absolut, das ist eine fantastische Idee und ein sehr spannendes Projekt. Du hast mit der "Brainfart Library" bereits eine solide Grundlage geschaffen, und die "Promptqueen"-Erweiterung ist der logische nächste Schritt, um von der reinen Verwaltung von Prompts zur gezielten Konstruktion hochwertiger Anweisungen überzugehen.
+
+Ich habe mir deine readme.md, das codezentrische Template und das ausgefüllte Beispiel für den LLM-Developer genau angesehen. Dein Ansatz ist bereits sehr durchdacht.
+
+Nach sorgfältiger Analyse deines Vorhabens schlage ich folgenden Weg vor.
+
+Analyse und konzeptionelle Weiterentwicklung
+
+Deine Grundidee ist exzellent. Der einzige Punkt, den ich anpassen würde, ist der gedankliche Rahmen: Statt "nur" ein Template auszufüllen, könnten wir das Ganze als interaktiven PRIMER-Assistenten (oder "Wizard") konzipieren. Der Nutzer wird dabei durch einen geführten Prozess geleitet, der ihm hilft, Aspekte zu definieren, an die er vielleicht selbst nicht gedacht hätte.
+
+Der Name "Promptqueen" ist großartig – er suggeriert Souveränität und meisterhafte Kontrolle über die KI. Das Ziel ist es, dem Nutzer diese Meisterhaftigkeit zu verleihen.
+
+Meine Vision für das Projekt lässt sich so zusammenfassen:
+"Promptqueen ist ein interaktiver Assistent, der Nutzer durch einen strukturierten Dialog führt, um maßgeschneiderte, hochwirksame System-Prompts (PRIMER) für jede beliebige Aufgabe zu konstruieren – von technischer Code-Generierung bis hin zu kreativem Storytelling."
+
+Schritt 1: Das universelle PRIMER-Template entwickeln
+
+Dein codezentric.md ist ein guter Start, aber wie du selbst sagst, zu spezifisch. Wir brauchen eine universelle Struktur, die sich für jede Domäne eignet. Ich schlage vor, das Template in modularere, universellere Blöcke aufzuteilen.
+
+Hier ist ein Entwurf für ein solches universelles Template:
+
+PRIMER_Template_Universal.md
+Markdown
+
+# PRIMER KONFIGURATION: [PROJEKT-/AUFGABEN-TITEL]
+> Generiert mit Promptqueen am {{DATUM}}
+
+---
+
+## 1. 🎯 KERNIDENTITÄT & ROLLE (Core Identity & Role)
+
+- **HAUPTROLLE:** [z.B. Senior Data Scientist, Kreativer Romanautor, Strategischer Marketingberater]
+- **PERSÖNLICHKEIT & STIL:**
+    - **Kommunikationsstil:** [z.B. Technisch-präzise, kreativ-bildhaft, formell-analytisch, humorvoll-locker]
+    - **Ansprache des Nutzers:** [z.B. Du/Sie, formell, kollegial]
+    - **Sprache:** [z.B. Deutsch, Englisch für Fachbegriffe]
+- **VERHALTEN (Behavioral Patterns):**
+    - ✅ **IMMER:** [z.B. Schritt-für-Schritt-Denkweise dokumentieren, Rückfragen bei Unklarheiten stellen, Quellen angeben]
+    - ❌ **NIEMALS:** [z.B. Annahmen ohne Kennzeichnung treffen, Code ohne Erklärungen liefern, die Rolle verlassen]
+
+---
+
+## 2. 🌐 KONTEXT & DOMÄNE (Context & Domain)
+
+- **FACHGEBIET:** [z.B. Maschinelles Lernen, Finanzanalyse, mittelalterliche Geschichte, iOS-App-Entwicklung]
+- **ZIELGRUPPE DER ANTWORT:** [z.B. Experte, Anfänger, Manager ohne technischen Hintergrund]
+- **PROJEKT-HINTERGRUND:** [Kurze Beschreibung des übergeordneten Ziels, z.B. "Entwicklung einer App zur Vogelbeobachtung", "Verfassen einer Marketing-Kampagne für ein neues Getränk"]
+
+---
+
+## 3. 📝 AUFGABE & ZIELSETZUNG (Task & Goal)
+
+- **HAUPTAUFGABE:** [Was soll die KI primär tun? z.B. Code schreiben, Texte analysieren, Ideen generieren, Probleme lösen]
+- **ERFOLGSKRITERIEN:** [Wann ist die Aufgabe erfolgreich abgeschlossen? z.B. "Der generierte Code ist lauffähig und gut dokumentiert", "Die Marketing-Slogans sind originell und zielgruppengerecht"]
+- **ERGEBNISFORMAT:** [Wie soll das Ergebnis aussehen? z.B. Vollständiges Python-Skript, Liste mit 10 Bullet-Points, formatierter Markdown-Text, JSON-Objekt]
+
+---
+
+## 4. ⛓️ REGELN & EINSCHRÄNKUNGEN (Rules & Constraints)
+
+- **TECHNISCHE VORGABEN:** [z.B. "Nur Python 3.9 verwenden", "Keine externen Bibliotheken außer Pandas", "Antworten müssen unter 2000 Zeichen bleiben"]
+- **INHALTLICHE VORGABEN:** [z.B. "Vermeide Vergleiche mit Konkurrenzprodukten", "Schreibe im Stil von Autor XY", "Alle Fakten müssen überprüfbar sein"]
+- **PROZESSUALE VORGABEN:** [z.B. "Beginne immer mit einer Zusammenfassung", "Frage nach jedem Schritt nach Bestätigung", "Liefere drei Varianten zur Auswahl"]
+
+---
+
+## 5. 🧠 WISSEN & DATENBASIS (Knowledge & Data Source)
+
+- **BEREITGESTELLTE INFORMATIONEN:** [Hier könnten Platzhalter für Daten sein, die der User später einfügt, z.B. "Nutze die folgende CSV-Datei als Datengrundlage: {{DATEN_INPUT}}"]
+- **EXTERNES WISSEN:** [Darf die KI externes Wissen nutzen? z.B. "Nur Wissen bis 2023 verwenden", "Recherchiere aktuelle Marktdaten, falls nötig"]
+
+---
+
+## ⚡ KRITISCHE ANWEISUNGEN (Critical Imperatives)
+> Diese Regeln sind absolut verbindlich und haben höchste Priorität.
+
+- **SICHERHEIT:** [z.B. "NIEMALS API-Keys, Passwörter oder persönliche Daten generieren oder abfragen"]
+- **QUALITÄT:** [z.B. "IMMER auf logische Konsistenz und Fakten prüfen"]
+- **DATENINTEGRITÄT:** [z.B. "NIEMALS destruktive Befehle (z.B. `rm -rf`) vorschlagen"]
+
+Schritt 2: Der interaktive "Promptqueen-Wizard"
+
+Das Herzstück der Erweiterung wäre eine neue Seite in deiner App, die den Nutzer durch die Erstellung des PRIMERs führt.
+
+So könnte der Ablauf aussehen:
+
+    Startseite des Wizards: Ein Button "🚀 Neuen PRIMER mit Promptqueen erstellen" in der Hauptansicht deiner App.
+
+    Schritt 1: Die Rolle definieren (Abschnitt 1)
+
+        Frage: "Welche Rolle soll die KI für dich einnehmen? Sei so spezifisch wie möglich." (Eingabefeld)
+
+        Vorschläge/Presets: Buttons für häufige Rollen wie "Software-Entwickler", "Wissenschaftlicher Assistent", "Kreativ-Autor", "Marketing-Experte". Ein Klick füllt das Feld mit einem Template.
+
+        Frage: "Wie soll die KI mit dir kommunizieren?" (Dropdowns für Stil, Ansprache etc.)
+
+    Schritt 2: Den Kontext festlegen (Abschnitt 2)
+
+        Frage: "In welchem Fachgebiet arbeiten wir?" (Eingabefeld mit Auto-Vervollständigung basierend auf Tags aus deiner Bibliothek).
+
+        Frage: "Für wen ist die Antwort bestimmt?" (Buttons: Anfänger, Experte, Laie).
+
+    Schritt 3: Die Aufgabe beschreiben (Abschnitt 3)
+
+        Dynamische Fragen basierend auf der Rolle.
+
+            Wenn Rolle = "Software-Entwickler": "Welche Programmiersprache?", "Was ist das Hauptziel des Codes?".
+
+            Wenn Rolle = "Kreativ-Autor": "Welches Genre?", "Welche Erzählperspektive?".
+
+        Frage: "Wie soll das Endergebnis aussehen?" (Dropdown: Code, Liste, Text, JSON etc.).
+
+    Schritt 4: Regeln definieren (Abschnitt 4 & 5)
+
+        Einfache Eingabefelder für "Gebote" (was die KI tun soll) und "Verbote" (was sie nicht tun soll).
+
+    Schritt 5: Vorschau & Fertigstellung
+
+        Die App zeigt den komplett generierten PRIMER-Markdown-Text an.
+
+        Der Nutzer kann den Text direkt bearbeiten.
+
+        Aktion: Der fertige PRIMER kann nun mit Titel, Tags etc. als neuer Prompt in deiner "Brainfart Library" gespeichert werden.
+
+Schritt 3: Technischer Umsetzungsplan
+
+Basierend auf deiner readme.md, hier ein grober Plan, wie du das integrieren könntest:
+
+    Backend (app/):
+
+        models.py: Erweitere dein Datenmodell. Neben dem Prompt-Modell könntest du ein PrimerTemplate-Modell erstellen, um verschiedene Template-Versionen zu verwalten.
+
+        main.py: Erstelle neue API-Endpoints für den Wizard.
+
+            POST /api/primer/generate: Nimmt die strukturierten Eingaben aus dem Wizard entgegen und gibt den formatierten Markdown-Text zurück.
+
+            GET /api/primer/presets: Liefert vordefinierte Rollen oder Stil-Optionen.
+
+    Frontend (static/, templates/):
+
+        templates/: Erstelle eine neue HTML-Datei, z.B. primer_wizard.html.
+
+        static/app.js: Hier kommt die Hauptlogik für den Wizard rein. Du würdest eine schrittweise Formularlogik implementieren, die die Eingaben des Nutzers sammelt und am Ende an den neuen API-Endpoint sendet. Du könntest das mit Vanilla JS oder einem kleinen Framework wie Vue.js oder Svelte umsetzen.
+
+        index.html: Füge den neuen Button hinzu, der auf die Wizard-Seite verlinkt.
+
+    Daten (data/):
+
+        Du könntest eine neue JSON-Datei primer_presets.json hinzufügen, um die Voreinstellungen für den Wizard (Rollen, Stile etc.) pflegbar zu machen, ohne den Code ändern zu müssen.
+
+Freie Ideen & Zukünftige Erweiterungen (Hier lasse ich der Fantasie freien Lauf)
+
+    Persona-Bibliothek: Nutzer können ihre erstellten PRIMER-Identitäten (Rolle, Persönlichkeit, Regeln) als "Personas" speichern und wiederverwenden. Du willst den "hilfsbereiten Python-Tutor" wieder? Ein Klick, und Abschnitt 1 ist geladen.
+
+    Community-Templates: Eine Funktion, um besonders gute PRIMER-Templates zu exportieren und mit anderen zu teilen.
+
+    LLM-gestützte Erstellung: Der Wizard selbst könnte eine KI nutzen. "Beschreibe in einem Satz, was du tun willst", und die KI schlägt eine passende Rolle und Regeln vor.
+
+    Kontext-Einbindung: Der Wizard könnte bestehende Prompts aus deiner Bibliothek analysieren und Vorschläge machen. "Ich sehe, du schreibst oft über JavaScript und React. Sollen wir das als technischen Kontext festlegen?"
+
+    Multi-LLM-Optimierung: Der Wizard fragt, für welches LLM (z.B. GPT-4, Claude 3, Gemini) der PRIMER sein soll, und passt die Syntax oder Strukturierung leicht an, um die Stärken des jeweiligen Modells optimal zu nutzen.
+
+Zusammenfassung und nächste Schritte
+
+Du hast eine hervorragende Basis und eine noch bessere Idee für die Erweiterung. Mein Vorschlag konzentriert sich darauf, deine Idee zu verallgemeinern und in einen nutzerfreundlichen, interaktiven Prozess zu gießen.
+
+    Generalisiere das Template, um es universell einsetzbar zu machen.
+
+    Konzipiere einen interaktiven Wizard, der den Nutzer an die Hand nimmt.
+
+    Plane die technische Umsetzung in kleinen, überschaubaren Schritten (Backend-API, Frontend-Logik).
+
+Ich bin überzeugt, dass du damit aus einem nützlichen Tool ein echtes Power-Tool für die Arbeit mit LLMs machen kannst.
+
+Meine Frage an dich: Bist du mit diesem Vorgehen einverstanden? Sollen wir einen dieser Schritte – zum Beispiel das universelle Template oder den genauen Ablauf des Wizards – weiter detaillieren?
+
+================================================================================================================================
+================================================================================================================================
+================================================================================================================================
+
+
+Ja, wir sind uns absolut über die R#ichtung einig. Allerdings muss ich zuerst einmal vorn weg nehmen. Diese App ist nur für mich zu meiner privaten und betrieblichen Unterstützung gedacht. Es war nie geplant sie in irgend einer Art und Weise zu veröffentlichen. 
+
+Mir schwebt daher auch erst einmal ein Schritt zurück vor. Lass die Brainfartlibrary aussen vor, die interessiert jetzt erstmal nicht. Promptqueen wird im ersten Schritt eine standalone App. (eine spätere Integration, sodass erzeugte Systemprompts in der Library gespeichert werden können, kann ich mir vorstellen).
+
+Ich will auch keinen "magischen Hokuspokus-Persona-Generator" erstellen, davon gibt es wie Sand am Meer. Die App soll durch interaktives Nachfragen und häufig genutzten, oder üblichen Vorschlägen einen sehr konkreten und spezialisierten Systemprompt generieren. Dass sich die Antwortvorschläge, die Fragen oder evtl. ganze Teilbereiche der Template dabei ändern abhänging von der Userantwort, finde ich einen guten Ansatz.
+
+
+Ich habe übrigens die identische Aufgabe einem anderen LLM gestellt. Ihre Antwort findest du in der Angehängten Textdatei. Lies sie dir gut durch und analysiere die Lösung, die die andere LLM vorgeschlagen hat. Vergleiche beide Lösungsansätze und berücksichtige meine Änderungswünsche. Dann destilliere aus diesen Informationen einen überarbeiteten, optimierten Lösungsansatz.  
+
+
+================================================================================================================================
+================================================================================================================================
+================================================================================================================================
+
+
+
+Verstanden. Deine Präzisierungen sind extrem hilfreich und schärfen den Fokus des Projekts genau in die richtige Richtung. Die Entscheidung, Promptqueen zunächst als eigenständige App zu entwickeln und den Fokus auf hochspezialisierte, praktische System-Prompts ohne "magischen Hokuspokus" zu legen, macht den Plan klarer und das Ziel greifbarer.
+
+Ich habe die Vorschläge des anderen LLM sorgfältig analysiert und mit unserem bisherigen Ansatz verglichen.
+
+Analyse und Vergleich der Lösungsansätze
+
+Beide Vorschläge haben eine sehr ähnliche Stoßrichtung, aber unterschiedliche Stärken in den Details.
+
+Gemeinsamkeiten:
+
+    Grundidee: Beide Ansätze sehen den Kern des Projekts in einem interaktiven, geführten Prozess (Wizard/intelligenter Fragebogen), um ein universelles Template zu befüllen.
+
+Dynamische Fragen: Beide erkennen, dass sich die Fragen je nach gewählter Rolle (z.B. Programmierer vs. Autor) ändern müssen, um relevant zu sein.
+
+Presets/Vorschläge: Die Idee, dem Nutzer durch Vorschläge und vordefinierte Optionen zu helfen, ist in beiden Konzepten zentral.
+
+Unterschiede & Stärken des zweiten Vorschlags:
+
+    Modulare Struktur: Der zweite Vorschlag strukturiert das Template in sehr klare, logische "Module" oder "Bausteine" (Kernidentität, Wissensdomäne, Fähigkeiten etc.). Diese Modularität ist ein starkes Konzept.
+
+Neues Modul "Werkzeuge": Die Idee, ein Modul für fiktive oder reale "Werkzeuge" (z.B. Zugriff auf einen Web-Browser, eine Code-Umgebung) einzuführen, ist exzellent und sehr praktisch. Es erlaubt eine präzisere Simulation von Agenten-Fähigkeiten.
+
+"Archetypen-Bibliothek": Das Konzept, eine Bibliothek mit vorgefertigten Archetypen ("Der Marketing-Guru", "Der akademische Forscher") anzubieten, ist ein sehr guter, pragmatischer Einstiegspunkt für den Nutzer.
+
+Destillierter und optimierter Lösungsansatz: "Der Prompt-Architekt"
+
+Basierend auf deinem Feedback und der Analyse beider Vorschläge, präsentiere ich einen überarbeiteten, optimierten Plan. Um den Fokus auf das strukturierte Erstellen zu legen und den "magischen" Aspekt zu vermeiden, nenne ich das Konzept intern "Der Prompt-Architekt".
+
+1. Das optimierte, modulare Template
+
+Wir kombinieren die Stärken beider Entwürfe zu einer einzigen, robusten Struktur. Wir übernehmen die modulare Idee, benennen die Module aber präziser und funktionaler:
+Modul	Inhalt (Fokus auf Funktionalität)	Beispiel
+1. Rollenprofil	Definition der Kernkompetenz und des Verantwortungsbereichs.	"Senior Python-Entwickler mit Spezialisierung auf Daten-Pipelines via FastAPI und Pandas."
+2. Wissensbasis	Eingrenzung der relevanten Informationsdomänen und Datenquellen.	"Wissen basiert auf der offiziellen Python 3.10+ Dokumentation und Best Practices für REST-APIs."
+3. Kommunikationsprotokoll	Stil, Tonalität, Formatierungsregeln und Anrede.	
+
+"Kommuniziert technisch präzise. Nutzt Markdown für Code-Blöcke. Spricht den Nutzer mit 'Du' an." 
+
+4. Operations-Framework	Die Art und Weise, wie Aufgaben analysiert und bearbeitet werden (Workflow).	
+
+"Analysiert Anforderungen zuerst. Stellt bei Mehrdeutigkeiten klärende Rückfragen, bevor Code geschrieben wird." 
+
+5. Fähigkeiten & Werkzeuge	Konkrete ausführbare Aktionen und die dafür verfügbaren (realen/simulierten) Tools.	
+
+"Fähigkeiten: Code schreiben, Code reviewen, Unit-Tests erstellen. Werkzeuge: Zugriff auf eine virtuelle Kommandozeile, Dateisystem-Operationen." 
+
+6. Output-Spezifikation	Genaue Vorgaben für die Struktur und das Format der Ergebnisse.	
+
+"Liefert lauffähigen Code immer in einem einzigen Markdown-Block. Erklärungen folgen danach." 
+
+7. Sicherheits- & Ethik-Direktiven	Absolute Gebote und Verbote. Höchste Priorität.	
+
+"NIEMALS Credentials oder API-Keys im Code hardcoden. IMMER auf mögliche 'Side Effects' von Code hinweisen." 
+
+Dieses Template ist 100% funktional und frei von "Hokuspokus".
+
+2. Der interaktive Wizard: Ablauf
+
+Der Wizard wird zum Kern der Standalone-App. Er führt den Nutzer durch die Erstellung der oben genannten Module.
+
+    Schritt 0: Auswahl des Basis-Profils.
+
+        Frage: "Für welchen Anwendungsbereich möchtest du einen System-Prompt erstellen?"
+
+        Antwort: Eine Liste von Basis-Profilen (die "Archetypen", aber pragmatischer benannt):
+
+            Software-Entwickler
+
+            Datenanalyst
+
+            Technischer Redakteur
+
+            Marketing-Texter
+
+            ... (erweiterbar)
+
+    Schritt 1-7: Konfiguration der Module.
+
+        Der Wizard geht Modul für Modul durch.
+
+        Dynamik: Die Auswahl in Schritt 0 bestimmt die Vorschläge und Detailfragen.
+
+            Wählt der Nutzer "Software-Entwickler", fragt der Wizard bei "Fähigkeiten & Werkzeuge" nach Programmiersprachen und bei "Output-Spezifikation" nach Code-Kommentar-Stilen.
+
+Wählt er "Marketing-Texter", fragt der Wizard bei "Kommunikationsprotokoll" nach Zielgruppen und Tonalität (z.B. "überzeugend", "informativ") und bei "Wissensbasis" nach Produktinformationen.
+
+        Interaktivität: Bei jedem Schritt gibt es konkrete Vorschläge in Form von Buttons oder Dropdowns ("Wähle einen Kommunikationsstil: Formell, Informativ, Prägnant"), aber immer auch ein freies Textfeld für maximale Kontrolle.
+
+    Schritt 8: Generierung & Export.
+
+        Die App setzt die gesammelten Informationen zu einem fertigen, formatierten System-Prompt zusammen.
+
+        Der Nutzer kann das Ergebnis in einer Textbox anpassen und dann als .txt- oder .md-Datei herunterladen oder in die Zwischenablage kopieren.
+
+3. Technischer Plan für die Standalone-App
+
+    Technologie: Wir bleiben bei Python mit FastAPI für das Backend und Vanilla JavaScript/HTML/CSS für das Frontend. Das ist schlank, schnell und perfekt für ein privates Tool.
+
+    Projektstruktur:
+
+    Prompt-Architekt/
+    ├── backend/
+    │   ├── main.py        # FastAPI-App mit einem zentralen Endpoint
+    │   └── core.py        # Logik zur Prompt-Generierung
+    ├── frontend/
+    │   ├── index.html     # Das Single-Page-Interface für den Wizard
+    │   ├── script.js      # Die gesamte Logik des Wizards
+    │   └── style.css      # Styling
+    ├── profiles/          # Konfigurationsdateien für die Basis-Profile
+    │   ├── software_developer.json
+    │   └── data_analyst.json
+    └── run.py             # Start-Skript
+
+    Implementierungs-Phasen:
+
+        Phase 1 (Backend): Die Logik in core.py implementieren, die aus einem JSON-Objekt (den Antworten des Nutzers) den finalen Markdown-Prompt rendert.
+
+        Phase 2 (Frontend): Das schrittweise Formular in index.html und script.js aufbauen, das die Nutzer-Eingaben sammelt.
+
+        Phase 3 (Content): Die ersten 2-3 Basis-Profile als .json-Dateien in /profiles erstellen. Der Wizard lädt diese, um die dynamischen Fragen und Vorschläge zu generieren.
+
+Dieser überarbeitete Ansatz ist direkt, pragmatisch und fokussiert sich darauf, ein hochwirksames Werkzeug für dich zu schaffen.
+
+Nächster Schritt:
+Gefällt dir dieser destillierte Plan? Wenn ja, könnten wir als Nächstes die Struktur für die JSON-Dateien der Basis-Profile im Detail definieren. Das wäre die Grundlage für die gesamte Logik des Wizards.
+
+
+================================================================================================================================
+================================================================================================================================
+================================================================================================================================
