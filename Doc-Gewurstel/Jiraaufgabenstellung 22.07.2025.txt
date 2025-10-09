@@ -1,0 +1,99 @@
+## Aufgabenstellung: Confiforms-Makro zur automatisierten Jira-Epic-Erstellung
+
+### Ziel  
+Das "oberste Ziel" dieses Taskist es, schnell zu einem validen, funktionsfähigen Ergebnis zu kommen und dabei die Kernanforderungen (erstelle ein Jira-Epic) zu erfüllen.
+Entwickle ein Confiforms-Makro für Confluence, das es Nutzer:innen ermöglicht, über einen Button ein Epic-Ticket zu erstellen. 
+### Funktionsweise
+In einem ersten Schritt wird der User nach einem Namen für das Ticket gefragt. 
+In einem nächsten Schritt muss der User die unten aufgeführten Formularfelder ausfüllen (falls Pflichtfeld), bzw die voreingetragenen Infos einfach belassen und speichern.
+Nach Klick auf „Speichern“ soll im Jira-Projekt **BWPTLS24** automatisch ein Epic mit entsprechendem Namen erstellt werden. 
+Sollte es zu Fehlern bei der Erstellung kommen, muss das dem User zeitnah deutlich mitgeteilt werden.
+Nach erfolgreicher Erstellung soll dem Nutzer eine tabellarische Darstellung der 5 zuletzt erstellten Tickets im Projekt "BWPTLS24" angezeigt werden.
+Sowohl der Name des Tickets als auch die vergebene Ticketnummer sollen durch einen Link zu der Jiraseite des neuen Epics dargestellt werden.
+
+Beachte dabei **strikt** folgende technische, funktionale und rechtliche **Einschränkungen und Vorgaben** für dieses Makro:
+### Anforderungen
+
+1. 	**Authentifizierung:** Die Jira-API wird über einen API-Token (Basic Auth) angesprochen. Der Token wird vom jeweiligen Nutzer bereitgestellt.
+2.	**Keine Adminrechte:** Du hast **keine Adminrechte** in Confluence (Version 9.2.4) oder Jira (Version 10.3.6 - Client/Server-Version).
+3.	**Kein Zugriff auf Storage Format Editor:** Du hast **keinen Zugriff auf den Storage Format Editor**.
+4.	**Ausschließlich grafische Standardelemente:** 
+	Du darfst **ausschließlich native grafische Elemente und Funktionalitäten** nutzen, die Confiforms (Version 3.17.7 von Vertuna.com), Confluence oder Jira **Standardnutzern** direkt zur Verfügung stellen (z.B. "Confiforms Field Definition", "Confiforms IFTTT Integration Rules", "Jira Issue Type", "Confluence Makros").
+5.	**Keine veralteten Versionen referenzieren:** 
+	Es wird Confluence (Version 9.2.4), Jira (Version 10.3.6 - Client/Server-Version) und ConfiForms Version 3.17.7. Achte stets darauf, dass die von dir gegebenen Informationen, Vorgehensweisen oder Begrifflichkeiten nicht aus einer veralteten Version eines der Softwareprodukte stammt. Auch das Mappen der Formularfelder kann in unterschiedlichen Versionen, große Unteerschiede in der Formatierung haben.	
+6.	**Felder**  
+   	In dem anzulegenden Epic-Ticket sollen folgende Felder mit den angegebenenen Spezifikationen und der Reihenfolge in der sie hier aufgeführt werden enthalten sein. Ich stelle dir die Liste in einer Art vorformatiertem JSON pseudoCode dar:
+	
+	{
+    "fields": 
+		{
+        "project": 				{ "key": "BWPTLS24" },
+		"issuetype": 			{"name":"Epic" },
+
+		"summary": 				"Zusammenfassung [entry.field_name]", (hier soll das Ergebnis am Ende der String "Einführung von " plus der Usereingabe des Feldes sein)
+        "customfield_10103": 	"Epic Name [entry.field_name]",        
+		"customfield_10403": 	{"id": "Anforderungskategorie [entry.field_name]" },
+		"components":			[{"name":"Component/s [entry.field_name]"}],
+        "priority": 			{"name": "Priority [entry.field_name]" },
+		"duedate": 				"[entry._now.jiraDate]",
+		"customfield_10524": 	"[entry._now.jiraDate]",
+		"assignee": 			{"name": "[entry._user]" },  (wenn der User dieses Feld leer lässt, so soll automatisch der Ersteller als assignee eingetragen werden)
+		"customfield_12500": 	{"name": "Co-Bearbeiter/-in (Mehrfachauswahl) [entry.field_name]" },
+
+		"description": 			"Beschreibung [entry.field_name]",
+		"fixVersions": 			[{"name": "Lösungsversion [entry.field_name]" } ]        	
+               
+    	}
+	}
+	
+	### Ergänzende Infos zu den Feldern:
+		project: 			Beschriftung "Projekt", Pflichtfeld, wird automatisch immer mit "BWPTLS24" vorausgefüllt.
+		issuetype:			Beschriftung "Typ", Pflichtfeld, ist immer mit "Epic" vorausgefüllt.
+		summary:			Beschriftung "Zusammenfassung", Pflichtfeld
+		customfield_10103:	Beschriftung "Epic Name", Pflichtfeld, ist immer gleich der Eingabe des Feldes "summary"
+		customfield_10403:	Beschriftung "Anforderungskategorie", Dropdownmenü mit 4 Einträgen. Weitere Infos weiter unten
+		components:			Beschriftung "Komponenten", hier soll eine Mehrfachauswahl aus einer von unserem Projekt angelegten Jiraliste möglich sein. 
+		priority:			Beschriftung "Priorität", Dropdownliste der in Jira benutzen Prioritäten (Sehr niedrig, Niedrig, Mittel, Hoch, Sehr Hoch)
+		duedate:			Dieses Feld soll im Augenblick noch unsichtbar bleiben, das Erstelldatum des Epictickets soll der Inhalt sein
+		customfield_10524:	Dieses Feld soll im Augenblick noch unsichtbar bleiben, das Erstelldatum des Epictickets soll der Inhalt sein
+		assignee:			Beschriftung "Bearbeiter", wenn nicht anderst befüllt, soll hier der Ersteller des Epics automatisch eingetragen werden
+		customfield_12500:	Beschriftung "Co-Bearbeiter/-in", hier soll eine Mehrfachauswahl von Jiranutzern möglich sein, die zusätzlich dem Ticket zugewiesen werden
+		description:		Beschriftung "Beschreibung", dies soll ein text area Feld sein, in das einfach Freitext eingetragen werden kann
+		fixVersions:		Beschriftung "Lösungsversion", hier soll eine Mehrfachauswahl aus einer von unserem Projekt angelegten Jiraliste möglich sein.
+		
+3. **Projekt**  
+   - Das Epic wird immer im Jira-Projekt mit dem Key **BEPTLS24** erstellt.
+4. **Berechtigungen**  
+   - Alle Nutzer:innen, die das Makro verwenden, haben die nötigen Rechte, um im Projekt ein Epic zu erstellen. Die Authentifizierung erfolgt mit deren eigenen Nutzerrechten.
+5. **Fehlerbehandlung**  
+   - Fehler bei der Erstellung (z.B. fehlende Berechtigung, ungültiger Name, Netzwerkfehler) werden auf der Confluence-Seite angezeigt.
+6. **Rückgabe**  
+   - Nach erfolgreicher Erstellung wird ein Link zum neuen Epic angezeigt. Der Linktext enthält die Jira-Ticketnummer und den vergebenen Namen.
+7. **Seitenaktualisierung**  
+   - Nach erfolgreicher Epic-Erstellung soll die Seite automatisch aktualisiert werden, um den neuen Status anzuzeigen.
+
+### Technische Hinweise
+
+- Es wird Confluence 9.2.4 und Jira 10.3.6, sowie das confiforms plugin in Version 3.17.7 von Vertuna.com benutzt
+- Benutze nur Elemente, die dir confiforms grafisch zur Verfügung stellt, also z.B. "Confiforms Field Definition" "Confiforms IFTTT Itegration Rules" usw. 
+- Bei "Confiforms IFTTT Itegration Rules" Elementen zeigen den einzufügenden Code für das mapping der Felder o. ä. als sauber formatierten JSON code an.
+- Ich habe keine Adminrechte und kann auch nicht auf den Storage Format Editor der in Confiforms integriert ist, zugreifen
+- Die Nutzer-Eingabe sind für die Felder, für die als Pflichtfelder angelegt sind, zu validieren.(z.B. keine leeren Eingaben, keine Sonderzeichen, Länge 5–255 Zeichen).
+- Es kommt ausschließlich Jira/Confluence in seiner "Data Center" Version zum Einsatz.
+- Die Implementierung soll auf maximale Benutzerfreundlichkeit und Fehlertoleranz ausgelegt sein.
+
+Strukturiere deinen Plan in **klar definierten, sequenziellen Teilschritten**, die zur Umsetzung eines Prototypen notwendig sind. 
+Für jeden Teilschritt gib die folgenden Informationen in Markdown an:
+
+### [Teilschritt-Titel]
+*	**Konkrete Durchführung:** Führe genau und präzisise aus, was konkret der Nutzer tun muss in diesem Teilschritt, wo er klicken muss,
+	in welchem Menü er die Elemente im Teilschritt findet oder wo genau er eventuell Text einzutragen hat oder ähnliches.
+*   **Ziel:** Präzisiere, was am Ende dieses Teilschritts erreicht sein soll.
+*   **Verwendete Elemente:** Liste konkret alle Confiforms/Confluence/Jira-Elemente oder Funktionen auf, die in diesem Schritt eingesetzt werden.
+	Nenne dabei nur solche, die mit den oben genannten Einschränkungen (keine Adminrechte, kein Storage Format Editor) nutzbar sind.
+*   **Erwartetes Ergebnis:** Beschreibe das konkrete, überprüfbare Ergebnis dieses Teilschritts.
+*   **Begründung der Minimalfunktionalität:** Erkläre kurz, warum der Umfang dieses Teilschritts für einen Prototypen ausreichend ist und welche erweiterten Funktionen oder Anpassungen bewusst für spätere Phasen ausgelassen werden (gemäß dem 'so wenig wie möglich, so viel wie nötig' Prinzip).
+*	**Gehe bei deinen Erklärungen wenn es um das Mappen von angelegten Felder zu verfügbaren customfields geht ruhig ins Detail, da kennt sich der Nutzer sehr wenig aus. 
+
+Hast du Rückfragen, die dir ein optimiertes Vorgehen ermöglichen um in möglichst wenig Zwischenschritten zu einem möglichst guten Ergebnis zu kommen?
+

@@ -1,0 +1,28 @@
+**Deine Hauptaufgabe ist es, einen detaillierten, umsetzbaren Plan zur Erstellung eines stabilen Prototypen für ein Confiforms-Makro zu entwickeln, das die automatisierte Jira-Epic-Erstellung ermöglicht.**
+
+Das **oberste Ziel** dieses Prototypen ist es, schnell zu einem validen, funktionsfähigen Ergebnis zu kommen und dabei die Kernanforderungen (erstelle ein Jira-Epic) zu erfüllen.
+
+Beachte dabei **strikt** folgende technische, funktionale und rechtliche **Einschränkungen und Vorgaben** für diesen Prototypen:
+
+*   **Keine Adminrechte:** Du hast **keine Adminrechte** in Confluence (Version 9.2.4) oder Jira (Version 10.3.6 - Client/Server-Version).
+*   **Kein Zugriff auf Storage Format Editor:** Du hast **keinen Zugriff auf den Storage Format Editor**.
+*   **Ausschließlich grafische Standardelemente:** Du darfst **ausschließlich native grafische Elemente und Funktionalitäten** nutzen, die Confiforms (Version 3.17.7 von Vertuna.com), Confluence oder Jira **Standardnutzern** direkt zur Verfügung stellen (z.B. "Confiforms Field Definition", "Confiforms IFTTT Integration Rules", "Jira Issue Type", "Confluence Makros").
+*	**Keine veralteten Versionen referenzieren:** Es wird Confluence (Version 9.2.4), Jira (Version 10.3.6 - Client/Server-Version) und ConfiForms Version 3.17.7. Achte stets darauf, dass die von dir gegebenen Informationen, Vorgehensweisen oder Begrifflichkeiten nicht aus einer veralteten Version eines der Softwareprodukte stammt. Auch das Mappen der Formularfelder kann in unterschiedlichen Versionen, große Unteerschiede in der Formatierung haben.
+*   **Jira-Projekt:** Das Epic wird **immer im Jira-Projekt mit dem Key BWPTLS24** erstellt.
+*   **Felder für Prototyp:** Bei diesem ersten Prototypen sollen nur die Felder **Epic-Name, Beschreibung, Component/s, Priorität, Fälligkeitsdatum und Ersteller** des Jira-Epics berücksichtigt werden.
+*   **Bestätigung bei erfolgreichem Erstellen eines Jira-Epics** Nach erfolgreicher Erstellung des Epics soll dem/der Nutzer:in eine Information angezeigt werden, dass ein neues Epic erstellt worden ist, wie es heißt und welche Ticketnummer es erhalten hat. Am besten wäre ein Link um auch direkt zu diesem springen zu können.
+*	**Liste mit verfügbaren Feldern und customfields in Jira-Epics** In der Aufgabe angehängt findest du die Datei Felder.txt, in der alle Informationen die der confiforms JSON Mapping Helper anzeigt, findest.
+
+Strukturiere deinen Plan in **klar definierten, sequenziellen Teilschritten**, die zur Umsetzung des Prototypen notwendig sind. 
+Für jeden Teilschritt gib die folgenden Informationen in Markdown an:
+
+### [Teilschritt-Titel]
+*	**Konkrete Durchführung:** Führe genau und präzisise aus, was konkret der Nutzer tun muss in diesem Teilschritt, wo er klicken muss, in welchem Menü er die Elemente im Teilschritt findet oder wo genau er eventuell Text einzutragen hat oder ähnliches.
+*   **Ziel:** Präzisiere, was am Ende dieses Teilschritts erreicht sein soll.
+*   **Verwendete Elemente:** Liste konkret alle Confiforms/Confluence/Jira-Elemente oder Funktionen auf, die in diesem Schritt eingesetzt werden. Nenne dabei nur solche, die mit den oben genannten Einschränkungen (keine Adminrechte, kein Storage Format Editor) nutzbar sind.
+*   **Erwartetes Ergebnis:** Beschreibe das konkrete, überprüfbare Ergebnis dieses Teilschritts.
+*   **Begründung der Minimalfunktionalität:** Erkläre kurz, warum der Umfang dieses Teilschritts für einen Prototypen ausreichend ist und welche erweiterten Funktionen oder Anpassungen bewusst für spätere Phasen ausgelassen werden (gemäß dem 'so wenig wie möglich, so viel wie nötig' Prinzip).
+*	**Gehe bei deinen Erklärungen wenn es um das Mappen von angelegten Felder zu verfügbaren customfields geht ruhig ins Detail, da kennt sich der Nutzer sehr wenig aus. 
+
+Hast du Rückfragen, die dir ein optimiertes Vorgehen ermöglichen um in möglichst wenig zwischenschritten zum ergebnis zu kommen?
+Andernfalls fange mit der Aufgabe an.

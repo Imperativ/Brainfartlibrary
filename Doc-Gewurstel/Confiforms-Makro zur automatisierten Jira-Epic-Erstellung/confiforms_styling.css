@@ -1,0 +1,409 @@
+/* CSS-Styling für Confiforms Epic Creator */
+/* Dieses CSS kann in einem HTML-Makro in Confluence eingefügt werden */
+
+<style>
+/* Basis-Styling für Confiforms-Container */
+.confluenceTable .confiform-container {
+    background: #fafbfc;
+    border: 1px solid #dfe1e6;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* Formular-Titel Styling */
+.confiform-container h3,
+.confiform-container .form-title {
+    color: #172b4d;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.confiform-container h3::before,
+.confiform-container .form-title::before {
+    content: "📝";
+    margin-right: 8px;
+}
+
+/* Field Label Styling */
+.confiform-container label,
+.confiform-container .field-label {
+    display: block;
+    color: #172b4d;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Required Field Indicator */
+.confiform-container .required::after {
+    content: " *";
+    color: #de350b;
+    font-weight: bold;
+}
+
+/* Input Field Styling */
+.confiform-container input[type="text"],
+.confiform-container textarea,
+.confiform-container select {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    border: 2px solid #dfe1e6;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.confiform-container input[type="text"]:focus,
+.confiform-container textarea:focus,
+.confiform-container select:focus {
+    outline: none;
+    border-color: #0052cc;
+    box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+}
+
+/* Button Styling */
+.confiform-container input[type="submit"],
+.confiform-container button,
+.confiform-container .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 12px;
+    margin-top: 16px;
+}
+
+/* Primary Button */
+.confiform-container input[type="submit"],
+.confiform-container .btn-primary {
+    background: #0052cc;
+    color: white;
+}
+
+.confiform-container input[type="submit"]:hover,
+.confiform-container .btn-primary:hover {
+    background: #0747a6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
+}
+
+/* Secondary Button */
+.confiform-container .btn-secondary {
+    background: #fafbfc;
+    color: #172b4d;
+    border: 2px solid #dfe1e6;
+}
+
+.confiform-container .btn-secondary:hover {
+    background: #f4f5f7;
+    border-color: #b3bac5;
+}
+
+/* Help Text */
+.confiform-container .field-help,
+.confiform-container small {
+    color: #5e6c84;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Ergebnis-Container */
+.confiform-results {
+    margin-top: 40px;
+}
+
+.confiform-results h3 {
+    color: #172b4d;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.confiform-results h3::before {
+    content: "📊";
+    margin-right: 8px;
+}
+
+/* Epic Result Card */
+.epic-result-card {
+    background: linear-gradient(135deg, #e3fcef 0%, #f0f9ff 100%);
+    border: 1px solid #36b37e;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.epic-result-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #36b37e;
+}
+
+.epic-result-card h4 {
+    color: #006644;
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.epic-result-card h4::before {
+    content: "✅";
+    margin-right: 8px;
+}
+
+/* Epic Info Grid */
+.epic-info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+}
+
+.epic-info-label {
+    font-weight: 600;
+    color: #172b4d;
+}
+
+.epic-info-value {
+    color: #5e6c84;
+}
+
+/* Jira Link Styling */
+.jira-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0052cc;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: rgba(0, 82, 204, 0.1);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.jira-link:hover {
+    background: rgba(0, 82, 204, 0.2);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-success {
+    background: #e3fcef;
+    color: #006644;
+}
+
+.status-error {
+    background: #ffebe6;
+    color: #bf2600;
+}
+
+/* Timestamp */
+.epic-timestamp {
+    color: #8993a4;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* Info Box */
+.info-box {
+    background: #e6f2ff;
+    border: 1px solid #b3d4ff;
+    border-radius: 6px;
+    padding: 16px;
+    margin: 20px 0;
+}
+
+.info-box h5 {
+    color: #0052cc;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.info-box h5::before {
+    content: "ℹ️";
+    margin-right: 8px;
+}
+
+.info-box p {
+    color: #172b4d;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Loading State */
+.loading-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #dfe1e6;
+    border-top: 2px solid #0052cc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation für neue Ergebnisse */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.epic-result-card.new {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .confiform-container {
+        padding: 16px;
+        margin: 10px 0;
+    }
+
+    .confiform-container input[type="text"],
+    .confiform-container textarea,
+    .confiform-container select {
+        max-width: 100%;
+    }
+
+    .epic-info-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .confiform-container input[type="submit"],
+    .confiform-container button,
+    .confiform-container .btn {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+}
+
+/* Dark Mode Support (falls Confluence Dark Theme verwendet wird) */
+@media (prefers-color-scheme: dark) {
+    .confiform-container {
+        background: #1e2328;
+        border-color: #3c4043;
+        color: #e8eaed;
+    }
+
+    .confiform-container h3,
+    .confiform-container .form-title,
+    .confiform-container label,
+    .confiform-container .field-label {
+        color: #e8eaed;
+    }
+
+    .confiform-container input[type="text"],
+    .confiform-container textarea,
+    .confiform-container select {
+        background: #2d3134;
+        border-color: #5f6368;
+        color: #e8eaed;
+    }
+
+    .confiform-container input[type="text"]:focus,
+    .confiform-container textarea:focus,
+    .confiform-container select:focus {
+        border-color: #8ab4f8;
+        box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.2);
+    }
+
+    .epic-result-card {
+        background: linear-gradient(135deg, #1a3d2e 0%, #1e3a5f 100%);
+        border-color: #34a853;
+    }
+
+    .epic-result-card h4 {
+        color: #81c995;
+    }
+
+    .epic-info-label {
+        color: #e8eaed;
+    }
+
+    .epic-info-value {
+        color: #9aa0a6;
+    }
+}
+
+/* Confluence-spezifische Anpassungen */
+.wiki-content .confiform-container {
+    margin: 20px 0;
+}
+
+.wiki-content .confiform-container * {
+    box-sizing: border-box;
+}
+
+/* Überschreibt Confluence Standard-Styling für bessere Integration */
+.wiki-content .confiform-container input[type="text"],
+.wiki-content .confiform-container textarea {
+    border: 2px solid #dfe1e6 !important;
+    border-radius: 6px !important;
+    padding: 12px 16px !important;
+}
+
+.wiki-content .confiform-container input[type="submit"] {
+    background: #0052cc !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+}
+</style>
+

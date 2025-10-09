@@ -1,0 +1,11 @@
+<customfieldname>Anforderungskategorien</customfieldname>
+	<customfieldvalue>
+		<customfieldvalue key="10151">
+			<![CDATA[ Fachliche Anforderung ]]>
+			10151 Fachliche Anforderung
+			10152 technische Anforderung
+			10153 Betriebliche Anforderung
+			10154 Qualitätsanforderung
+		</customfieldvalue>
+	</customfieldvalue>
+</customfieldname>

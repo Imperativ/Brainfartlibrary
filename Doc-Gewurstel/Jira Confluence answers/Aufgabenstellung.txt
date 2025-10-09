@@ -1,0 +1,37 @@
+Create a Confluence form using ConfiForms that generates a Jira Epic with four sub-tasks. Use only ConfiForms' graphical elements (no code/storage format editors).
+
+Requirements:
+
+    Form Fields: 
+	Epic name, Epic description, Priority (dropdown), Assignee (user picker), Due date (date field), 
+	Issue type (dropdown), Jira project (dropdown), optional Jira key (text field)
+    
+	Issue Checkboxes: Four checkboxes ("Create Issue 1–4") – sub-tasks are only created if the corresponding checkbox is selected
+    
+	Checklist Templates:
+        Epic page: Template-based checklist (e.g., "Standard Epic Checklist")
+        Each issue: Unique checklist (issue-specific templates like "Test Checklist" or "Documentation Checklist")
+    
+	Jira Integration:
+        Use "ConfiForms IFTTT Integration Rules" for Jira creation (trigger: form submission)
+        Generate Jira keys and provide feedback in Confluence
+   
+   Output: Tabular confirmation with Jira key, name, creator, and status
+   
+   
+Clarifications Needed:
+    Checklist Templates: Where are the templates stored? (Confluence pages, global snippets?)
+    Jira Field Mapping: Which Jira fields should be mapped to which ConfiForms fields?
+    Template Engine: Should ConfiForms' "Create Page" function be used for checklists?
+
+Solution Approach (using ConfiForms graphical elements only):
+    Form Setup with "Confiforms Field Definition" for all input fields
+    IFTTT Rules per checkbox (four rules, each linked to Jira issue creation + template integration)
+    Confirmation Report via "Confiforms Report Macro" with filters for newly created entries
+
+To Verify:
+    Are Jira APIs for Epic/Issue creation enabled in the target system?
+    Does the Confluence user have write permissions for the Jira project?
+
+Ready to proceed? Provide the missing details about checklist templates and Jira field mapping, 
+and I’ll define the ConfiForms form logic step-by-step.

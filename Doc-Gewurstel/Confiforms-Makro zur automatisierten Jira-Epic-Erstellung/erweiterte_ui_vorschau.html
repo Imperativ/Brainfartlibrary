@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Creator mit Jira-Integration - UI Vorschau</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .epic-creator-extended {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .epic-creator-extended::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-title::before {
+            content: '🚀';
+            font-size: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .field-group {
+            position: relative;
+        }
+
+        .field-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .field-group.required label::after {
+            content: ' *';
+            color: #e74c3c;
+        }
+
+        .field-group input,
+        .field-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .field-group input:focus,
+        .field-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .field-group input:hover,
+        .field-group select:hover {
+            border-color: #bdc3c7;
+        }
+
+        .multi-select {
+            min-height: 120px;
+            background: #fafbfc;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .multi-select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .multi-select option {
+            padding: 10px;
+            margin: 2px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .multi-select option:hover {
+            background: #f8f9fa;
+        }
+
+        .multi-select option:selected {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 500;
+        }
+
+        .field-help {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .field-help::before {
+            content: 'ℹ️';
+            font-size: 0.8rem;
+        }
+
+        .submit-section {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .submit-button.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .submit-button.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-message h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .success-message h3::before {
+            content: '✅';
+            font-size: 1.2rem;
+        }
+
+        .jira-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .jira-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: white;
+        }
+
+        .jira-link::before {
+            content: '🔗';
+        }
+
+        .epic-listview-extended {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .epic-listview-extended::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00b894 0%, #00cec9 100%);
+        }
+
+        .listview-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .listview-title::before {
+            content: '📋';
+            font-size: 1.4rem;
+        }
+
+        .epic-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .epic-table th {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .epic-table td {
+            padding: 16px 15px;
+            border-bottom: 1px solid #f1f3f4;
+            vertical-align: top;
+            transition: background 0.2s ease;
+        }
+
+        .epic-table tr:hover td {
+            background: #f8f9fa;
+        }
+
+        .epic-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .epic-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .components-list,
+        .versions-list {
+            font-size: 0.85rem;
+            color: #6c757d;
+            max-width: 200px;
+            line-height: 1.4;
+        }
+
+        .component-tag,
+        .version-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin: 2px;
+            font-weight: 500;
+        }
+
+        .jira-key-link {
+            font-weight: 600;
+            color: #667eea;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .jira-key-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: #5a67d8;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .status-success {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+        }
+
+        .status-success::before {
+            content: '✓';
+        }
+
+        .status-pending {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+        }
+
+        .status-pending::before {
+            content: '⏳';
+        }
+
+        .date-display {
+            font-size: 0.85rem;
+            color: #6c757d;
+            font-family: 'Courier New', monospace;
+        }
+
+        .action-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .action-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .feature-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .feature-highlight h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-highlight p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .demo-controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .demo-controls h3 {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+
+        .demo-button {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .demo-button:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+
+        .demo-button.active {
+            background: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .epic-creator-extended,
+            .epic-listview-extended {
+                padding: 20px;
+                margin: 10px 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .epic-table {
+                font-size: 0.85rem;
+            }
+            
+            .epic-table th,
+            .epic-table td {
+                padding: 10px 8px;
+            }
+            
+            .form-grid {
+                gap: 20px;
+            }
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Epic Creator mit Jira-Integration</h1>
+            <p>Erweiterte ConfiForms-Lösung mit Components und Fix Versions Dropdown-Feldern</p>
+        </div>
+
+        <div class="demo-controls">
+            <h3>Demo-Steuerung</h3>
+            <button class="demo-button active" onclick="showForm()">Formular anzeigen</button>
+            <button class="demo-button" onclick="showSuccess()">Erfolg simulieren</button>
+            <button class="demo-button" onclick="showListView()">ListView anzeigen</button>
+            <button class="demo-button" onclick="resetDemo()">Demo zurücksetzen</button>
+        </div>
+
+        <div class="feature-highlight">
+            <h3>🎯 Neue Features</h3>
+            <p>Automatische Synchronisation mit Jira-Listen • Bidirektionale Datenverknüpfung • Multi-Select-Unterstützung • Real-time Validierung</p>
+        </div>
+
+        <div class="epic-creator-extended" id="epicForm">
+            <h2 class="form-title">Neues Epic erstellen</h2>
+            
+            <form id="epicCreatorForm">
+                <div class="form-grid">
+                    <div class="field-group required">
+                        <label for="epicName">Epic Name</label>
+                        <input type="text" id="epicName" name="epicName" placeholder="Geben Sie den Epic-Namen ein..." required>
+                        <div class="field-help">Eindeutiger Name für das neue Epic</div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="epicComponents" class="tooltip" data-tooltip="Wählen Sie eine oder mehrere Komponenten aus">Komponenten</label>
+                        <select id="epicComponents" name="epicComponents" class="multi-select" multiple>
+                            <option value="10001">Frontend</option>
+                            <option value="10002">Backend</option>
+                            <option value="10003">API</option>
+                            <option value="10004">Database</option>
+                            <option value="10005">UI/UX</option>
+                            <option value="10006">Testing</option>
+                            <option value="10007">Documentation</option>
+                            <option value="10008">Infrastructure</option>
+                        </select>
+                        <div class="field-help">Projekt-Komponenten aus Jira (Multi-Select möglich)</div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="epicFixVersions" class="tooltip" data-tooltip="Wählen Sie die Ziel-Versionen für dieses Epic">Lösungsversionen</label>
+                        <select id="epicFixVersions" name="epicFixVersions" class="multi-select" multiple>
+                            <option value="20001">Version 1.0.0</option>
+                            <option value="20002">Version 1.1.0</option>
+                            <option value="20003">Version 1.2.0</option>
+                            <option value="20004">Version 2.0.0</option>
+                            <option value="20005">Version 2.1.0</option>
+                            <option value="20006">Hotfix 1.0.1</option>
+                            <option value="20007">Beta 2.0.0-beta1</option>
+                        </select>
+                        <div class="field-help">Fix Versions aus Jira (Multi-Select möglich)</div>
+                    </div>
+
+                    <div class="field-group" id="jiraKeyGroup" style="display: none;">
+                        <label for="jiraKey">Jira Epic Key</label>
+                        <input type="text" id="jiraKey" name="jiraKey" readonly>
+                        <div class="field-help">Automatisch generiert nach Epic-Erstellung</div>
+                    </div>
+
+                    <div class="field-group" id="jiraUrlGroup" style="display: none;">
+                        <label for="jiraUrl">Jira Epic URL</label>
+                        <input type="text" id="jiraUrl" name="jiraUrl" readonly>
+                        <div class="field-help">Direkter Link zum Epic in Jira</div>
+                    </div>
+
+                    <div class="field-group" id="statusGroup" style="display: none;">
+                        <label for="status">Status</label>
+                        <input type="text" id="status" name="status" readonly>
+                        <div class="field-help">Aktueller Verarbeitungsstatus</div>
+                    </div>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="submit-button" id="submitButton">
+                        Epic mit Komponenten erstellen
+                    </button>
+                </div>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <h3>Epic erfolgreich erstellt!</h3>
+                <p>Das Epic wurde in Jira erstellt und die bidirektionale Verknüpfung wurde hergestellt.</p>
+                <a href="#" class="jira-link" id="jiraLinkSuccess">JIRAPRO24-123 - Beispiel Epic öffnen</a>
+            </div>
+        </div>
+
+        <div class="epic-listview-extended" id="epicListView" style="display: none;">
+            <h2 class="listview-title">Erstellte Epics</h2>
+            
+            <table class="epic-table">
+                <thead>
+                    <tr>
+                        <th>Epic Name</th>
+                        <th>Komponenten</th>
+                        <th>Lösungsversionen</th>
+                        <th>Jira Key</th>
+                        <th>Status</th>
+                        <th>Erstellt am</th>
+                        <th>Aktionen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="epic-name">User Authentication System</td>
+                        <td class="components-list">
+                            <span class="component-tag">Frontend</span>
+                            <span class="component-tag">Backend</span>
+                            <span class="component-tag">API</span>
+                        </td>
+                        <td class="versions-list">
+                            <span class="version-tag">Version 1.0.0</span>
+                            <span class="version-tag">Version 1.1.0</span>
+                        </td>
+                        <td>
+                            <a href="#" class="jira-key-link">JIRAPRO24-123</a>
+                        </td>
+                        <td>
+                            <span class="status-badge status-success">Erstellt</span>
+                        </td>
+                        <td class="date-display">03.07.2025 14:30</td>
+                        <td>
+                            <a href="#" class="action-button">Jira öffnen</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="epic-name">Payment Integration</td>
+                        <td class="components-list">
+                            <span class="component-tag">Backend</span>
+                            <span class="component-tag">API</span>
+                            <span class="component-tag">Testing</span>
+                        </td>
+                        <td class="versions-list">
+                            <span class="version-tag">Version 1.2.0</span>
+                        </td>
+                        <td>
+                            <a href="#" class="jira-key-link">JIRAPRO24-124</a>
+                        </td>
+                        <td>
+                            <span class="status-badge status-success">Erstellt</span>
+                        </td>
+                        <td class="date-display">03.07.2025 13:15</td>
+                        <td>
+                            <a href="#" class="action-button">Jira öffnen</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="epic-name">Mobile App Redesign</td>
+                        <td class="components-list">
+                            <span class="component-tag">UI/UX</span>
+                            <span class="component-tag">Frontend</span>
+                            <span class="component-tag">Testing</span>
+                        </td>
+                        <td class="versions-list">
+                            <span class="version-tag">Version 2.0.0</span>
+                            <span class="version-tag">Beta 2.0.0-beta1</span>
+                        </td>
+                        <td>
+                            <a href="#" class="jira-key-link">JIRAPRO24-125</a>
+                        </td>
+                        <td>
+                            <span class="status-badge status-pending">In Bearbeitung</span>
+                        </td>
+                        <td class="date-display">03.07.2025 12:45</td>
+                        <td>
+                            <a href="#" class="action-button">Jira öffnen</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="epic-name">Database Migration</td>
+                        <td class="components-list">
+                            <span class="component-tag">Database</span>
+                            <span class="component-tag">Infrastructure</span>
+                            <span class="component-tag">Documentation</span>
+                        </td>
+                        <td class="versions-list">
+                            <span class="version-tag">Hotfix 1.0.1</span>
+                        </td>
+                        <td>
+                            <a href="#" class="jira-key-link">JIRAPRO24-126</a>
+                        </td>
+                        <td>
+                            <span class="status-badge status-success">Erstellt</span>
+                        </td>
+                        <td class="date-display">03.07.2025 11:20</td>
+                        <td>
+                            <a href="#" class="action-button">Jira öffnen</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <script>
+        // Demo-Steuerung
+        function showForm() {
+            document.getElementById('epicForm').style.display = 'block';
+            document.getElementById('epicListView').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            updateActiveButton(0);
+        }
+
+        function showSuccess() {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('jiraKeyGroup').style.display = 'block';
+            document.getElementById('jiraUrlGroup').style.display = 'block';
+            document.getElementById('statusGroup').style.display = 'block';
+            
+            // Simuliere Daten
+            document.getElementById('jiraKey').value = 'JIRAPRO24-127';
+            document.getElementById('jiraUrl').value = 'https://your-jira.atlassian.net/browse/JIRAPRO24-127';
+            document.getElementById('status').value = 'Epic erfolgreich erstellt';
+            
+            updateActiveButton(1);
+        }
+
+        function showListView() {
+            document.getElementById('epicForm').style.display = 'none';
+            document.getElementById('epicListView').style.display = 'block';
+            updateActiveButton(2);
+        }
+
+        function resetDemo() {
+            document.getElementById('epicForm').style.display = 'block';
+            document.getElementById('epicListView').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('jiraKeyGroup').style.display = 'none';
+            document.getElementById('jiraUrlGroup').style.display = 'none';
+            document.getElementById('statusGroup').style.display = 'none';
+            
+            // Formular zurücksetzen
+            document.getElementById('epicCreatorForm').reset();
+            document.getElementById('submitButton').classList.remove('loading');
+            document.getElementById('submitButton').textContent = 'Epic mit Komponenten erstellen';
+            
+            updateActiveButton(3);
+            setTimeout(() => updateActiveButton(0), 500);
+        }
+
+        function updateActiveButton(index) {
+            const buttons = document.querySelectorAll('.demo-button');
+            buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+        }
+
+        // Formular-Funktionalität
+        document.getElementById('epicCreatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.getElementById('submitButton');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            
+            // Loading-State
+            submitButton.classList.add('loading');
+            submitButton.textContent = 'Epic wird erstellt...';
+            loadingOverlay.style.display = 'flex';
+            
+            // Simuliere API-Aufruf
+            setTimeout(() => {
+                loadingOverlay.style.display = 'none';
+                showSuccess();
+                
+                // Auto-Refresh simulieren
+                setTimeout(() => {
+                    location.reload();
+                }, 3000);
+            }, 2000);
+        });
+
+        // Multi-Select Enhancement
+        function updateSelectedCount() {
+            const componentsSelect = document.getElementById('epicComponents');
+            const versionsSelect = document.getElementById('epicFixVersions');
+            
+            updateSelectLabel(componentsSelect, 'Komponenten');
+            updateSelectLabel(versionsSelect, 'Lösungsversionen');
+        }
+
+        function updateSelectLabel(select, baseLabel) {
+            const selectedCount = select.selectedOptions.length;
+            const label = select.previousElementSibling;
+            
+            if (selectedCount > 0) {
+                label.textContent = `${baseLabel} (${selectedCount} ausgewählt)`;
+            } else {
+                label.textContent = baseLabel;
+            }
+        }
+
+        // Event Listeners für Multi-Select
+        document.getElementById('epicComponents').addEventListener('change', updateSelectedCount);
+        document.getElementById('epicFixVersions').addEventListener('change', updateSelectedCount);
+
+        // Copy to Clipboard für Jira-Links
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('jira-key-link') && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                
+                const url = e.target.href || `https://your-jira.atlassian.net/browse/${e.target.textContent}`;
+                
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url).then(() => {
+                        showCopyNotification(e.target);
+                    });
+                } else {
+                    // Fallback
+                    const textArea = document.createElement('textarea');
+                    textArea.value = url;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    showCopyNotification(e.target);
+                }
+            }
+        });
+
+        function showCopyNotification(element) {
+            const notification = document.createElement('div');
+            notification.textContent = 'URL kopiert!';
+            notification.style.cssText = `
+                position: fixed;
+                background: #00b894;
+                color: white;
+                padding: 8px 16px;
+                border-radius: 6px;
+                font-size: 0.9rem;
+                z-index: 1001;
+                pointer-events: none;
+                box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+            `;
+            
+            const rect = element.getBoundingClientRect();
+            notification.style.top = (rect.top - 40) + 'px';
+            notification.style.left = rect.left + 'px';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 2000);
+        }
+
+        // Formular-Validierung
+        document.getElementById('epicName').addEventListener('input', function() {
+            const value = this.value.trim();
+            const submitButton = document.getElementById('submitButton');
+            
+            if (value.length > 0) {
+                this.style.borderColor = '#00b894';
+                submitButton.disabled = false;
+                submitButton.style.opacity = '1';
+            } else {
+                this.style.borderColor = '#e1e8ed';
+                submitButton.disabled = true;
+                submitButton.style.opacity = '0.6';
+            }
+        });
+
+        // Hover-Effekte für Tabellen-Zeilen
+        document.querySelectorAll('.epic-table tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.01)';
+                this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                this.style.zIndex = '10';
+            });
+            
+            row.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Initialisierung
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSelectedCount();
+            
+            // Simuliere langsame Dropdown-Ladung
+            setTimeout(() => {
+                const selects = document.querySelectorAll('.multi-select');
+                selects.forEach(select => {
+                    select.style.borderColor = '#00b894';
+                    select.style.background = 'white';
+                });
+            }, 1000);
+        });
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        showForm();
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        showSuccess();
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        showListView();
+                        break;
+                    case '0':
+                        e.preventDefault();
+                        resetDemo();
+                        break;
+                }
+            }
+        });
+
+        // Responsive Verhalten
+        function handleResize() {
+            const container = document.querySelector('.container');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                container.style.padding = '10px';
+            } else {
+                container.style.padding = '20px';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial call
+    </script>
+</body>
+</html>
+

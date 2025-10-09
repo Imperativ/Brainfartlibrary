@@ -1,0 +1,7 @@
+!* Muss zuerst abgearbeitet werden
+[ ]* Annahmen und Entscheidungen dokumentiert
+[ ]* Risiken und Abhängigkeiten ermittelt
+[ ]* Keine kritischen offenen Fragen/Punkte
+[ ]* Einfluss nicht-funktionaler Anforderungen bewertet
+[ ]* Testbarkeit bestätigt
+[ ]* Grobschätzung liegt vor 
