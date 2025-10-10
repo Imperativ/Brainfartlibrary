@@ -1,8 +1,17 @@
-# Python
+# Brainfartlibrary specific ignores
+API Keys/
+Doc-Gewurstel/
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
+*.class
+.env
+.venv
+venv/
+env/
+ENV/
+*.log
+*.pot
+*.pyc
 .Python
 build/
 develop-eggs/
@@ -19,42 +28,5 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Virtual Environment
-venv/
-env/
-ENV/
-.venv
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Environment variables
-.env
-.env.local
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Backup files
-*.backup
-*.bak
