@@ -1,0 +1,58 @@
+CHAT INSIGHTS - Session vom 17.09.2025
+===========================================
+
+✶ Insight 1 ─────────────────────────────────────
+Diese Konfiguration etabliert ein strukturiertes System für höchste Code-Qualität mit einem "Analyze-First"-Ansatz, der verhindert, dass ich vorschnell zu Lösungen springe. Das TodoWrite-Tool wird als zentrales Planungsinstrument definiert, und die bilinguale Kommunikationsstrategie kombiniert deutsche Präzision mit englischen Fachbegriffen.
+─────────────────────────────────────────────────
+
+✶ Insight 2 ─────────────────────────────────────
+MCP-Server sind modulare Erweiterungen für Claude Code, die spezifische Funktionalitäten bereitstellen. Der filesystem-Server ist bereits aktiv, aber für Git, Windows und Firefox brauchen wir separate Server-Module, die in der MCP-Konfiguration definiert werden müssen.
+─────────────────────────────────────────────────
+
+✶ Insight 3 ─────────────────────────────────────
+Claude Code (CLI) hat ein anderes Konfigurationssystem als Claude Desktop. Die MCP-Server werden über Command-Line-Parameter oder Environment-Variablen aktiviert, nicht über eine JSON-Konfigurationsdatei. Der filesystem-Server läuft bereits über die MCP-Integration der CLI.
+─────────────────────────────────────────────────
+
+✶ Insight 4 ─────────────────────────────────────
+Claude Code läuft bereits mit aktivierten MCP-Servern! Der `--mcp-config` Parameter ist für das Starten neuer Instanzen. Wir müssen die MCP-Server in der aktuellen Session testen, nicht eine neue starten.
+─────────────────────────────────────────────────
+
+✶ Insight 5 ─────────────────────────────────────
+Die Community hat gezeigt: Playwright MCP wird über `claude mcp add` aktiviert, nicht über JSON-Konfiguration. Der Server muss explizit dem aktuellen Workspace hinzugefügt werden und unterstützt Firefox über `--browser firefox` Parameter.
+─────────────────────────────────────────────────
+
+✶ Insight 6 ─────────────────────────────────────
+Die Community-Recherche war der Schlüssel: `claude mcp add` ist der offizielle Weg für Claude Code MCP-Konfiguration, nicht JSON-Dateien. Playwright unterstützt Firefox nativ über Browser-Parameter.
+─────────────────────────────────────────────────
+
+ADDITIONAL INSIGHTS (erkannt während Chat):
+============================================
+
+✶ Insight 7 ─────────────────────────────────────
+Als "world wide leading LLM and MCP senior-Developer" sollte ich mein Expertenwissen nutzen, anstatt blind zu suchen. Systematisches Raten widerspricht meiner definierten Rolle und den CLAUDE.md Vorgaben.
+─────────────────────────────────────────────────
+
+✶ Insight 8 ─────────────────────────────────────
+Claude Code != Claude Desktop. Ich muss die richtige Plattform-spezifische Terminologie und Konfigurationsmethoden verwenden. CLI-Tools haben andere Workflows als Desktop-Anwendungen.
+─────────────────────────────────────────────────
+
+✶ Insight 9 ─────────────────────────────────────
+User-Feedback zeigt Schwächen auf: Anstatt durch das komplette Dateisystem zu suchen, sollte ich gezielt vorgehen und meine Rolle als Experte ernst nehmen.
+─────────────────────────────────────────────────
+
+✶ Insight 10 ────────────────────────────────────
+Community-Recherche ist nicht optional, sondern verpflichtend laut CLAUDE.md. WebSearch sollte mein erster Schritt bei unbekannten Problemen sein, nicht das Erraten von Lösungen.
+─────────────────────────────────────────────────
+
+✶ Insight 11 ────────────────────────────────────
+"TO THE POINT" bedeutet: Logisches und kreatives Denken, nicht systematisches Durchprobieren aller möglichen Optionen. Analyse vor Aktion.
+─────────────────────────────────────────────────
+
+ZUSAMMENFASSUNG:
+================
+- Claude Code != Claude Desktop (verschiedene Konfigurationssysteme)
+- MCP-Server werden über `claude mcp add` aktiviert, nicht über manuelle JSON-Bearbeitung
+- Community-Recherche ist essentiell für spezifische Probleme
+- Playwright MCP ermöglicht Firefox-Steuerung über Browser-Parameter
+- TodoWrite-Tool ist zentral für strukturierte Arbeitsweise
+- "Analyze-First"-Ansatz verhindert blindes Herumsuchen

@@ -1,0 +1,14 @@
+Das **oberste Ziel** ist es, schnell zu einem validen, funktionsfähigen Ergebnis in Form eines Prototypen zu kommen und dabei die Kernanforderungen (erstelle ein Jira-Epic) zu erfüllen.
+Strukturiere deinen Plan in **klar definierten, sequenziellen Teilschritten**, die zur Umsetzung des Prototypen notwendig sind. 
+Für jeden Teilschritt gib die folgenden Informationen in Markdown an:
+
+### [Teilschritt-Titel]
+*	**Konkrete Durchführung:** Führe genau und präzisise aus, was konkret der Nutzer tun muss in diesem Teilschritt, wo er klicken muss, in welchem Menü er die Elemente im Teilschritt findet oder wo genau er eventuell Text einzutragen hat oder ähnliches.
+*   **Ziel:** Präzisiere, was am Ende dieses Teilschritts erreicht sein soll.
+*   **Verwendete Elemente:** Liste konkret alle Confiforms/Confluence/Jira-Elemente oder Funktionen auf, die in diesem Schritt eingesetzt werden. Nenne dabei nur solche, die mit den oben genannten Einschränkungen (keine Adminrechte, kein Storage Format Editor) nutzbar sind.
+*   **Erwartetes Ergebnis:** Beschreibe das konkrete, überprüfbare Ergebnis dieses Teilschritts.
+*   **Begründung der Minimalfunktionalität:** Erkläre kurz, warum der Umfang dieses Teilschritts für einen Prototypen ausreichend ist und welche erweiterten Funktionen oder Anpassungen bewusst für spätere Phasen ausgelassen werden (gemäß dem 'so wenig wie möglich, so viel wie nötig' Prinzip).
+*	**Gehe bei deinen Erklärungen wenn es um das Mappen von angelegten Felder zu verfügbaren customfields geht ruhig ins Detail, da kennt sich der Nutzer sehr wenig aus. 
+
+Hast du Rückfragen, die dir ein optimiertes Vorgehen ermöglichen um in möglichst wenig zwischenschritten zum ergebnis zu kommen?
+Andernfalls fange mit der Aufgabe an.

@@ -1,0 +1,60 @@
+{
+    "fields": {
+        "summary": "Summary [entry.field_name]",
+        "issuetype": {
+            "name": "Epic"
+        },
+        "components": [
+            {
+                "name": "Component/s [entry.field_name]"
+            }
+        ],
+        "project": {
+            "key": "BWPTLS24"
+        },
+        "description": "Description [entry.field_name]",
+        "customfield_12101": {
+            "name": "Mitarbeitende(s) Team(s) [entry.field_name]"
+        },
+        "fixVersions": [
+            {
+                "name": "Fix Version/s [entry.field_name]"
+            }
+        ],
+        "priority": {
+            "name": "Priority [entry.field_name]"
+        },
+        "customfield_11157": "Aufwandsschätzung [entry.field_name]",
+        "customfield_10103": "Epic Name [entry.field_name]",
+        "customfield_12500": {
+            "name": "Co-Bearbeiter/-in (Mehrfachauswahl) [entry.field_name]"
+        },
+        "labels": [
+            "Labels [entry.field_name]"
+        ],
+        "customfield_11159": [
+            {
+                "id": "NfA-Relevanz (MA) [entry.field_name]"
+            }
+        ],
+        "customfield_10403": {
+            "id": "Anforderungskategorie [entry.field_name]"
+        },
+        "customfield_10524": "[entry._now.jiraDate]",
+        "versions": {
+            "name": "Affects Version/s [entry.field_name]"
+        },
+        "duedate": "[entry._now.jiraDate]",
+        "customfield_10408": "Geschäftsprozess [entry.field_name]",
+        "customfield_10519": {
+            "name": "Checkliste Produktanforderungen [entry.field_name]"
+        },
+        "customfield_10409": "Quelle (Freitext) [entry.field_name]",
+        "issuelinks": {
+            "name": "Linked Issues [entry.field_name]"
+        },
+        "assignee": {
+            "name": "[entry._user]"
+        }
+    }
+}

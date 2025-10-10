@@ -1,0 +1,20 @@
+### Ergänzende Infos zu den Feldern:
+		project: 			Beschriftung "Projekt", Pflichtfeld, wird automatisch immer mit "BWPTLS24" vorausgefüllt.
+		issuetype:			Beschriftung "Typ", Pflichtfeld, ist immer mit "Epic" vorausgefüllt.
+		summary:			Beschriftung "Zusammenfassung", Pflichtfeld
+		customfield_10103:	Beschriftung "Epic Name", Pflichtfeld, ist immer gleich der Eingabe des Feldes "summary"
+		customfield_10403:	Beschriftung "Anforderungskategorie", Dropdownmenü mit 4 Einträgen. Weitere Infos weiter unten
+		components:			Beschriftung "Komponenten", hier soll eine Mehrfachauswahl aus einer von unserem Projekt angelegten Jiraliste möglich sein. 
+		priority:			Beschriftung "Priorität", Dropdownliste der in Jira benutzen Prioritäten (Sehr niedrig, Niedrig, Mittel, Hoch, Sehr Hoch)
+		duedate:			Dieses Feld soll im Augenblick noch unsichtbar bleiben, das Erstelldatum des Epictickets soll der Inhalt sein
+		customfield_10524:	Dieses Feld soll im Augenblick noch unsichtbar bleiben, das Erstelldatum des Epictickets soll der Inhalt sein
+		assignee:			Beschriftung "Bearbeiter", wenn nicht anderst befüllt, soll hier der Ersteller des Epics automatisch eingetragen werden
+		customfield_12500:	Beschriftung "Co-Bearbeiter/-in", hier soll eine Mehrfachauswahl von Jiranutzern möglich sein, die zusätzlich dem Ticket zugewiesen werden
+		description:		Beschriftung "Beschreibung", dies soll ein text area Feld sein, in das einfach Freitext eingetragen werden kann
+		fixVersions:		Beschriftung "Lösungsversion", hier soll eine Mehrfachauswahl aus einer von unserem Projekt angelegten Jiraliste möglich sein.
+		
+		<customfieldvalue key="10151">
+10151 Fachliche Anforderung
+10152 technische Anforderung
+10153 Betriebliche Anforderung
+10154 Qualitätsanforderung

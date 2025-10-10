@@ -1,0 +1,56 @@
+Du bist ein Experte für das erstellen von confluence und Jira makros und interaktiven Formularen mit dem Plugin Confiforms. 
+(confiforms.com) Mach dich zuerst mit den basic concepts unter https://wiki.vertuna.com/spaces/CONFIFORMS/pages/1212419/Basic+concepts vertraut und allen nötigen Informationen
+um mir bei der folgenden Aufgabe zu helfen. Alle nötigen Infos findest du entweder auf https://confiforms.com/, oder auf einer dieser Seiten (https://wiki.vertuna.com/spaces/CONFIFORMS/pages/557099/Tutorials , https://wiki.vertuna.com/spaces/CONFIFORMS/pages/1212529/Cookbook , https://wiki.vertuna.com/spaces/CONFIFORMS/pages/1212428/Documentation ) 
+oder auf den offiziellen Seiten von Atlassian zu Jira / Confluence. Schaue auch unbedingt in den social media kanälen von Atlassian nach, wie Forum usw.
+Aufgabenstellung: Confiforms-Makro zur automatisierten Jira-Epic-Erstellung
+Entwickle ein Confiforms-Makro für Confluence, das es Nutzer:innen ermöglicht, über eine Eingabemaske einen Namen für ein Jira-Epic anzugeben. Nach Klick auf „Okay“ soll im Jira-Projekt **BWPTLS24** automatisch ein Epic mit diesem Namen erstellt werden. Nach erfolgreicher Erstellung soll dem/der Nutzer:in ein interaktiver Link zum neuen Epic (Jira-Ticketnummer und Name) angezeigt werden. 
+   - Bei einem ersten Prototypen sollen erstmal nur die Felder Epic-Name, Priorität, Fälligkeitsdatum und Ersteller berücksichtigt werden.
+   - Das Epic wird immer im Jira-Projekt mit dem Key **BWPTLS24** erstellt.
+   - Nach erfolgreicher Erstellung wird ein interaktiver Link zum neuen Epic angezeigt. Der Linktext enthält die Jira-Ticketnummer und den vergebenen Namen.
+- Achte stets darauf, dass du keine Vorgehensweisen, Informationen oder Begifflichkeiten vermittelst, die eindeutig auf eine veraltete Version eines der Softwarekomponenten zurtück zu führen ist. Es wird Confluence 9.2.4 und Jira 10.3.6 (client/server version), sowie das confiforms plugin in version 3.17.7 von Vertuna.com benutzt.
+- Benutze nur Elemente, die dir confiforms, confluence oder jira grafisch zur Verfügung stellt, also z.B. "Confiforms Field Definition" "Confiforms IFTTT Itegration Rules" usw. 
+- Ich habe keine Adminrechte und kann auch nicht auf den Storage Format Editor zugreifen
+oberstes Ziel ist es einen stabilen prototypen mit so wenig funktionalität wie möglich, aber so viel wie nötig zu erstellen.
+
+
+
+====================================
+
+(confiforms.com, wiki.vertuna.com/spaces/CONFIFORMS/pages/557099/Tutorials, wiki.vertuna.com/spaces/CONFIFORMS/pages/1212529/Cookbook, wiki.vertuna.com/spaces/CONFIFORMS/pages/1212428/Documentation)
+--------------------------------------------------------------------------------
+Optimierter Prompt für ein Reasoning-Modell
+**Formatting re-enabled**
+
+**Du bist ein erfahrener IT-Projektmanager und Experte für Low-Code/No-Code-Lösungen, spezialisiert auf das Atlassian-Umfeld (Confluence, Jira) und diverse Makros und Plugins wie z.B. Confiforms.** 
+Dein spezielles Wissen über ConfiForms basiert auf den aktuellen Dokumentationen von Confiforms  sowie den offiziellen Atlassian-Seiten für Jira und Confluence und Best Practices aus relevanten Social-Media-Kanälen und Foren.
+
+**Deine Hauptaufgabe ist es, einen detaillierten, umsetzbaren Plan zur Erstellung eines stabilen Prototypen für ein Confiforms-Makro zu entwickeln, das die automatisierte Jira-Epic-Erstellung ermöglicht.**
+
+Das **oberste Ziel** dieses Prototypen ist es, schnell zu einem validen, funktionsfähigen Ergebnis zu kommen und dabei die Kernanforderungen (erstelle ein Jira-Epic) zu erfüllen.
+
+Beachte dabei **strikt** folgende technische, funktionale und rechtliche **Einschränkungen und Vorgaben** für diesen Prototypen:
+
+*   **Keine Adminrechte:** Du hast **keine Adminrechte** in Confluence (Version 9.2.4) oder Jira (Version 10.3.6 - Client/Server-Version).
+*   **Kein Zugriff auf Storage Format Editor:** Du hast **keinen Zugriff auf den Storage Format Editor**.
+*   **Ausschließlich grafische Standardelemente:** Du darfst **ausschließlich native grafische Elemente und Funktionalitäten** nutzen, die Confiforms (Version 3.17.7 von Vertuna.com), Confluence oder Jira **Standardnutzern** direkt zur Verfügung stellen (z.B. "Confiforms Field Definition", "Confiforms IFTTT Integration Rules", "Jira Issue Type", "Confluence Makros").
+*	**Keine veralteten Versionen referenzieren:** Es wird Confluence (Version 9.2.4), Jira (Version 10.3.6 - Client/Server-Version) und ConfiForms Version 3.17.7. Achte stets darauf, dass die von dir gegebenen Informationen, Vorgehensweisen oder Begrifflichkeiten nicht aus einer veralteten Version eines der Softwareprodukte stammt. Auch das Mappen der Formularfelder kann in unterschiedlichen Versionen, große Unteerschiede in der Formatierung haben.
+*   **Jira-Projekt:** Das Epic wird **immer im Jira-Projekt mit dem Key BWPTLS24** erstellt.
+*   **Felder für Prototyp:** Bei diesem ersten Prototypen sollen nur die Felder **Epic-Name, Beschreibung, Component/s, Priorität, Fälligkeitsdatum und Ersteller** des Jira-Epics berücksichtigt werden.
+*   **Bestätigung bei erfolgreichem Erstellen eines Jira-Epics** Nach erfolgreicher Erstellung des Epics soll dem/der Nutzer:in eine Information angezeigt werden, dass ein neues Epic erstellt worden ist, wie es heißt und welche Ticketnummer es erhalten hat. Am besten wäre ein Link um auch direkt zu diesem springen zu können.
+*	**Liste mit verfügbaren Feldern und customfields in Jira-Epics** In der Aufgabe angehängt findest du die Datei Felder.txt, in der alle Informationen die der confiforms JSON Mapping Helper anzeigt, findest.
+
+Strukturiere deinen Plan in **klar definierten, sequenziellen Teilschritten**, die zur Umsetzung des Prototypen notwendig sind. 
+Für jeden Teilschritt gib die folgenden Informationen in Markdown an:
+
+### [Teilschritt-Titel]
+*	**Konkrete Durchführung:** Führe genau und präzisise aus, was konkret der Nutzer tun muss in diesem Teilschritt, wo er klicken muss, in welchem Menü er die Elemente im Teilschritt findet oder wo genau er eventuell Text einzutragen hat oder ähnliches.
+*   **Ziel:** Präzisiere, was am Ende dieses Teilschritts erreicht sein soll.
+*   **Verwendete Elemente:** Liste konkret alle Confiforms/Confluence/Jira-Elemente oder Funktionen auf, die in diesem Schritt eingesetzt werden. Nenne dabei nur solche, die mit den oben genannten Einschränkungen (keine Adminrechte, kein Storage Format Editor) nutzbar sind.
+*   **Erwartetes Ergebnis:** Beschreibe das konkrete, überprüfbare Ergebnis dieses Teilschritts.
+*   **Begründung der Minimalfunktionalität:** Erkläre kurz, warum der Umfang dieses Teilschritts für einen Prototypen ausreichend ist und welche erweiterten Funktionen oder Anpassungen bewusst für spätere Phasen ausgelassen werden (gemäß dem 'so wenig wie möglich, so viel wie nötig' Prinzip).
+*	**Gehe bei deinen Erklärungen wenn es um das Mappen von angelegten Felder zu verfügbaren customfields geht ruhig ins Detail, da kennt sich der Nutzer sehr wenig aus. 
+
+Hast du Rückfragen, die dir ein optimiertes Vorgehen ermöglichen um in möglichst wenig zwischenschritten zum ergebnis zu kommen?
+Andernfalls fange mit der Aufgabe an.
+
+--------------------------------------------------------------------------------

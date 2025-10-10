@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm search:*)",
+      "Bash(npm info:*)",
+      "WebFetch(domain:docs.claude.com)",
+      "mcp__filesystem__list_allowed_directories",
+      "Bash(claude --version)",
+      "Bash(git --version)",
+      "Bash(claude --mcp-config D:claude-workspacemcp-config.json)",
+      "Bash(claude --mcp-config \"D:\\claude-workspace\\mcp-config.json\")",
+      "WebSearch",
+      "Bash(claude mcp add:*)",
+      "Bash(git clone:*)",
+      "Bash(npm install)",
+      "mcp__filesystem__list_directory",
+      "mcp__filesystem__read_multiple_files"
+    ]
+  },
+  "outputStyle": "Explanatory"
+}

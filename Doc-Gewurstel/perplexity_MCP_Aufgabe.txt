@@ -1,0 +1,58 @@
+Ziel ist es ein Firefox Plugin zu programmieren, dass es erlaubt Model Context Protocol (MCP) ( https://github.com/modelcontextprotocol) Tools direkt mit einer großen Auswahl an AI-Platformen (vor allem: manus.im, perplexity.ai, gemini.google.co, chatgpt.ai, claude.ai) zu integrieren.
+
+Die Hauptfunktionen des Plugins sollen sein:
+Integration mehrerer KI-Plattformen: Das Plugin soll MCP Funktionalitäten direkt in diverse Platformen ( manus.im, perplexity.ai, gemini.google.co, chatgpt.ai, claude.ai ) hinzufügen und sich direkt in diese Umgebungen integrieren.
+
+Nahtlose Nutzung von MCP-Tools: 
+Das Plugin erkennt automatisch MCP-Toolaufrufe in den KI-Antworten, ermöglicht die Ausführung dieser Tools mit einem Klick und fügt die Ergebnisse direkt in die Konversation ein.Dadurch erweitert sie die Fähigkeiten der KI-Plattformen erheblich. 
+
+Verbesserte Interaktivität und Kontextverständnis: 
+MCP erlaubt es dem KI-Modell, eigenständig Tools und Datenquellen adaptive einzusetzen, Zwischenfragen zu stellen und Aktionen auszuführen, um komplexe Aufgaben zu lösen. Das hebt MCP gegenüber statischen REST-APIs hervor, die solche agentischen Verhaltensweisen kaum unterstützen.
+
+Standardisierte, flexible Schnittstelle: 
+MCP fungiert als universeller, offener Standard, der die Integration von Tools und Datenquellen entkoppelt und dadurch Wiederverwendbarkeit und Flexibilität beim Wechsel von KI-Modellen ermöglicht.Das spart Entwicklungsaufwand und fördert eine schnellere Umsetzung komplexer KI-Agenten.
+
+Benutzerfreundliche UI und Einstellungen: 
+Die Erweiterung bietet eine Sidebar, die sich unauffällig in die Plattform einfügt, unterstützt Dark/Light Mode, merkt sich Einstellungen wie Position und Größe und bietet Modi wie Auto-Execute und Auto-Submit für automatisierte Abläufe.
+									
+ausserdem soll es noch folgendes nach möglichkeit beinhalten:
+Bidirektionale Kommunikation: MCP schafft einen Kanal, über den KI-Modelle nicht nur Daten lesen, sondern auch Aktionen in externen Systemen ausführen können,z. B. Dateien lesen/schreiben, Code ändern, Commits auslösen oder Nachrichten senden.
+
+Standardisiertes Protokoll (JSON-RPC 2.0): 
+Die Kommunikation zwischen KI-Client und externem Tool-Server erfolgt über ein einheitliches Nachrichtenformat, das Requests, Responses und Fehler klar strukturiert.So können verschiedene Tools mit minimalem Integrationsaufwand eingebunden werden.
+
+Flexible Transportwege: 
+MCP unterstützt mehrere Übertragungswege wie HTTP(S), WebSockets, Server-Sent Events oder lokale UNIX-Sockets, was sowohl lokale als auch cloudbasierte Integrationen ermöglicht.
+
+Automatische Tool-Erkennung und -Ausführung: 
+MCP-Server erklären der KI, welche Funktionen (Capabilities) sie anbieten, und führen die vom Modell angeforderten Aktionen aus. 
+Das Modell kann so kontextsensitiv auf externe Software zugreifen und diese steuern.
+
+Sicherheitsmechanismen: 
+MCP erlaubt rollenbasierte Zugriffskontrollen, Authentifizierung (z. B. OAuth2, Token-basiert) und verschlüsselte Verbindungen, um den sicheren Betrieb in produktiven Umgebungen zu gewährleisten Modularität und Erweiterbarkeit: Neue Tools und Datenquellen lassen sich leicht als MCP-Server hinzufügen, ohne dass das KI-Modell oder die Host-Anwendung umfangreich angepasst werden müssen.So entsteht eine skalierbare Infrastruktur für vielfältige Anwendungsfälle.
+
+Beispiele für integrierbare Software: Git-Repositories (Codeänderungen, Commits), Cloud-Speicher (Google Drive), Kommunikationsdienste (Slack), Datenbanken (PostgreSQL), Ticket-/Knowledgebase (Jira/Confluence)und weitere SaaS-Tools können eingebunden werden.
+
+Eine Chromeerweiterung mit entsprechenden, bzw. sehr ähnlichen funktionen existiert bereits. Sie heißt MCP Superassistant und im chrome store runterladbar.Das hier die Adressen zur offiziellen Seite der Erweiterung, auf der auch ausführlich erklärt wird, wie MCP Superassistant funktioniert. ( https://mcpsuperassistant.ai ) Das hier ist der Link zur github Seite des Projekts: ( https://github.com/srbhptl39/MCP-SuperAssistant )
+
+Den Youtubekanal des Prejekts mit Tutorialvideos findest du unter: ( https://www.youtube.com/@MCPSuperAssistant )
+
+Nimm dir zuerst genug Zeit um das Plugin in seinem vollen Umfang zu analysieren. 
+Dann überlege dir, welche Informationen du benötigst, um die analysierte Erweiterung als reines firefox plugin (firefox version mit all ihren Funktionalitäten (soweit möglich) in ein Firefox plugin (Firefox Version: 139.0.4 (64-Bit)) zu programmieren.
+
+Erstelle dir einen Plan wie du vorgehen möchstes. Dein Ziel ist es nach möglichkeit im ersten Durchlauf (oder mit möglichst wenigen user interaktionen) ein best mögliches und vor allem lauffähiges plugin abzuliefern. Um das zu erreichen investiere lieber vor dem Starten der Aufgabe mehr Zeit in Informationsbeschaffung und Rechersche. Frage notfalls den Benutzer, falls dir eine wichtige Information unklar sein sollte.
+
+Wünschenswertes optionales Feature: an easy way to discover and explore Model Context Protocol (MCP) servers. 
+It offers a clean, categorized view of available MCP servers that can extend the capabilities of AI models.
+Categorized Organization: Servers are grouped into Reference Servers, Official Integrations, and Community Servers
+
+Auto-Updates: Automatically fetches the latest server list every 12 hours
+New Server Indicators: Newly added servers are highlighted with an animated badge
+Search Functionality: Quickly find servers by name or description
+Direct Links: Click on any server to visit its GitHub repository or website
+Responsive UI: Clean, modern interface with detailed server descriptions
+
+The extension pulls data either directly from the official MCP GitHub repository or a local JSON file, ensuring users always have access to the most current list of available MCP servers for their AI workflows.
+Ich habe bereits ein Githubprojekt für dieses Plugin angelegt: https://github.com/Imperativ/firefox-contextcrafter
+									
+											
